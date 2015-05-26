@@ -18,14 +18,9 @@ public class UsuarioDao extends Dao {
 		}
 	}
 
-	public boolean excluir(Long id) {
-		try {
-			Usuario usuario = getEntityManager().getReference(Usuario.class, id);
-			getEntityManager().remove(usuario);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
+	public void excluir(Long id) {
+		Usuario usuario = getEntityManager().getReference(Usuario.class, id);
+		getEntityManager().remove(usuario);
 	}
 
 	public Usuario buscarPorId(Long id) {
@@ -41,7 +36,8 @@ public class UsuarioDao extends Dao {
 		}
 
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	public List<Usuario> listar() {
 		try {
 			Query query = getEntityManager().createQuery("From Usuario",

@@ -7,35 +7,37 @@
 	<title>ZNS - <ui:insert name="title"></ui:insert></title>
 
 	<h:outputScript library="webjars" name="jquery/2.1.4/jquery.js" />
-	<h:outputScript library="webjars" name="bootstrap/3.3.4/js/bootstrap.min.js" />
-	<h:outputStylesheet library="webjars" name="bootstrap/3.3.4/css/bootstrap.min.css" />
+	<h:outputScript library="webjars"
+		name="bootstrap/3.3.4/js/bootstrap.min.js" />
+	<h:outputStylesheet library="webjars"
+		name="bootstrap/3.3.4/css/bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="darkly.bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="padrao.css" />
 </h:head>
 
 <body>
 	<ui:include src="/WEB-INF/templates/menu.xhtml" />
-		<ui:debug hotkey="x"
-			rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
 
-		<div id="header">
-			<ui:insert name="header">
-				<h1>ZONA NAO SEGURA</h1>
-			</ui:insert>
-		</div>
+	<div id="header">
+		<ui:insert name="header">
+			<h1>ZONA NAO SEGURA</h1>
+		</ui:insert>
+	</div>
 
 
-		<div id="content">
-			<ui:insert name="content">
-				<h2>Bem vindo!</h2>
-			</ui:insert>
-		</div>
+	<div id="content">
+		<ui:insert name="content">
+			<h2>Bem vindo!</h2>
+		</ui:insert>
+	</div>
 
-		<div id="footer">
-			<ui:insert name="footer">
-				<center>SENAI/SC - TI20132N1 PW</center>
-			</ui:insert>
-		</div>
+	<div id="footer">
+		<ui:insert name="footer">
+			<center>SENAI/SC - TI20132N1 PW</center>
+		</ui:insert>
+	</div>
 
 </body>
 

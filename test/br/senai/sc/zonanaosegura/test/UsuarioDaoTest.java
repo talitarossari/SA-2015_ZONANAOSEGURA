@@ -1,4 +1,4 @@
-package test;
+package br.senai.sc.zonanaosegura.test;
 
 import br.senai.sc.zonanaosegura.dao.UsuarioDao;
 import br.senai.sc.zonanaosegura.entity.Usuario;

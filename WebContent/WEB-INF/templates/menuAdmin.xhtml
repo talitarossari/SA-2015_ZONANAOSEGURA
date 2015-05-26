@@ -1,61 +1,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
 <head>
-  <title>Admin - <ui:insert name="title">Inicio</ui:insert></title>
+<title>Admin - <ui:insert name="title">Inicio</ui:insert></title>
 
-  <h:outputScript library="jquery" name="jquery.js" />
-  <h:outputScript library="js" name="admin-menu.js" />
-  <h:outputScript library="js" name="menuLateral.js" />
-  <h:outputScript library="js" name="metisMenu.js" />
-  <h:outputScript library="js" name="morris.js" />
-  <h:outputScript library="js" name="bootstrap.js" />
-  <h:outputStylesheet library="css" name="admin.css" />
-  <h:outputStylesheet library="css" name="admin.css" />
-  
+<h:outputScript library="jquery" name="jquery.js" />
+<h:outputScript library="js" name="admin-menu.js" />
+<h:outputScript library="js" name="menuLateral.js" />
+<h:outputScript library="js" name="metisMenu.js" />
+<h:outputScript library="js" name="morris.js" />
+<h:outputScript library="js" name="bootstrap.js" />
+<h:outputStylesheet library="css" name="admin.css" />
+<h:outputStylesheet library="css" name="admin.css" />
+
 </head>
 
 <body>
-	<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
-		<div id="wrapper">
-			<nav class="navbar navbar-inverse" style="margin-bottom: 0%;">
-				<div class="container-fluid">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header" style="height: 90px; border-bottom: 1px solid #C5C5C5;">
-						<a class="navbar-brand" href="index.xhtml"> <h:graphicImage style="height: 90px;" library="img" name="logo.png" />
-						</a>
-						<button type="button" class="navbar-toggle collapsed"
-							data-toggle="collapse" style="margin-top: 28px; margin-right: 20px;" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar" style="background-color:#F00"></span> <span class="icon-bar" style="background-color:#F00"></span> 
-								<span class="icon-bar" style="background-color:#F00"></span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav navbar-right" style="margin-right: 15px; height: 90px;">
-							<li><a class="navbar-brand navbar-right" href="index.xhtml" style="margin-right: 0px;"> <h:graphicImage style="height: 90px; margin-right: -61px;padding: 19px;" library="img" name="button.png" />
-							</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="navbar-default sidebar" role="navigation">
-					<div class="sidebar-nav navbar-collapse">
-				        <ul id="side-menu" class="nav">
-				            <li class="sidebar-search"></li>
-				            <li>Painel</li>
-				            <li>Usuarios</li>
-				            <li>Denuncias</li>
-				            <li>Sujestoes</li>
-				            <li></li>
-				            <li></li>
-				            <li class="active"></li>
-				        </ul>
-		    		</div>
-		    	</div>
-			</nav>
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+	<div id="wrapper">
+		<nav class="navbar navbar-inverse" style="margin-bottom: 0%;">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header"
+				style="height: 90px; border-bottom: 1px solid #C5C5C5;">
+				<a class="navbar-brand" href="index.xhtml"> <h:graphicImage
+						style="height: 90px;" library="img" name="logo.png" />
+				</a>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse"
+					style="margin-top: 28px; margin-right: 20px;"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar" style="background-color: #F00"></span> <span
+						class="icon-bar" style="background-color: #F00"></span> <span
+						class="icon-bar" style="background-color: #F00"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right"
+					style="margin-right: 15px; height: 90px;">
+					<li><a class="navbar-brand navbar-right" href="index.xhtml"
+						style="margin-right: 0px;"> <h:graphicImage
+								style="height: 90px; margin-right: -61px;padding: 19px;"
+								library="img" name="button.png" />
+					</a></li>
+				</ul>
+			</div>
 		</div>
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul id="side-menu" class="nav">
+					<li class="sidebar-search"></li>
+					<li>Painel</li>
+					<li>Usuarios</li>
+					<li>Denuncias</li>
+					<li>Sujestoes</li>
+					<li></li>
+					<li></li>
+					<li class="active"></li>
+				</ul>
+			</div>
+		</div>
+		</nav>
+	</div>
 </body>
 
 </html>

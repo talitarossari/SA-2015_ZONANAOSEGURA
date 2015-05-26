@@ -1,42 +1,74 @@
 package br.senai.sc.zonanaosegura.mb;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+
+import br.senai.sc.zonanaosegura.dao.UsuarioDao;
+import br.senai.sc.zonanaosegura.entity.Usuario;
 
 @ManagedBean
 public class UsuarioMB {
-	private String login;
-	private String nome;
-	private String senha;
+	private Usuario usuario;
+	private List<Usuario> usuarios;
+	private UsuarioDao usuarioDao;
 	
-	public String getLogin() {
-		return login;
+	@PostConstruct
+	public void initMB() {
+		this.usuario = new Usuario();
+		usuarioDao = new UsuarioDao();
+	}
+	
+	
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 
-	public String getNome() {
-		return nome;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setUsuarios(List<Usuario> usuarios) {
+		if(usuarios == null){
+			usuarios = usuarioDao.listar();
+		}
+		this.usuarios = usuarios;
 	}
 
-	public String enviar(){
-		System.out.println("Nome: " + nome);
-		System.out.println("E-Mail: " + login);
-			
-		nome = "";
-		login = "";
-			
+
+	public UsuarioDao getUsuarioDao() {
+		return usuarioDao;
+	}
+
+
+	public void setUsuarioDao(UsuarioDao usuarioDao) {
+		this.usuarioDao = usuarioDao;
+	}
+
+	public String salvar(){
+		usuarioDao.inserir(usuario);
+		return "listarusuarios?faces-redirect=true";
+	}
+	
+	public String excluir(String idParam){
+		Long id = Long.valueOf(idParam);
+		usuarioDao.excluir(id);
 		return "";
 	}
-		
+
+	public String editar(String idParam){
+		Long id = Long.valueOf(idParam);
+		usuario = usuarioDao.buscarPorId(id);
+		return "cadastrousuario";
+	}
 	
 
 }

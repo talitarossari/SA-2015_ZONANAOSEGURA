@@ -1,7 +1,8 @@
-body{
-	background-image: url("#{resource['/img/elegant-grey-illumination.jpg']}");
+body {
+	background-image:
+		url("#{resource['/img/elegant-grey-illumination.jpg']}");
 	background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 100%;
 }
