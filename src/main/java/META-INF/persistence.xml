@@ -18,6 +18,7 @@
 	
 	<persistence-unit name="znsTest">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>br.senai.sc.zonanaosegura.entity.Usuario</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:target/testdb" />
@@ -30,6 +31,8 @@
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
+			
+			
 		</properties>
 	</persistence-unit>
 </persistence>
