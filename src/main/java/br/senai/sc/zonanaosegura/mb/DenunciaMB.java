@@ -4,69 +4,69 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import br.senai.sc.zonanaosegura.dao.CidadeDao;
-import br.senai.sc.zonanaosegura.entity.Cidade;
+import br.senai.sc.zonanaosegura.dao.DenunciaDao;
+import br.senai.sc.zonanaosegura.entity.Denuncia;
 
 public class DenunciaMB {
 	
-/*	private Denuncia cidade;
-	private List<Denuncia> cidades;
-	private DenunciaDao cidadeDao;
+	private Denuncia denuncia;
+	private List<Denuncia> denuncias;
+	private DenunciaDao denunciaDao;
 	
 	@PostConstruct
 	public void initMB() {
-		this.cidade = new Denuncia();
-		cidadeDao = new DenunciaDao();
+		this.denuncia = new Denuncia();
+		denunciaDao = new DenunciaDao();
 	}
 	
 	
 	public Denuncia getDenuncia() {
-		return cidade;
+		return denuncia;
 	}
 
 
-	public void setDenuncia(Denuncia cidade) {
-		this.cidade = cidade;
+	public void setDenuncia(Denuncia denuncia) {
+		this.denuncia = denuncia;
 	}
 
 
 	public List<Denuncia> getDenuncias() {
-		return cidades;
+		return denuncias;
 	}
 
 
-	public void setDenuncias(List<Denuncia> usuarios) {
-		if(usuarios == null){
-			usuarios = cidadeDao.listar();
+	public void setDenuncias(List<Denuncia> denuncias) {
+		if(denuncias == null){
+			denuncias = denunciaDao.listar();
 		}
-		this.cidades = usuarios;
+		this.denuncias = denuncias;
 	}
 
 
 	public DenunciaDao getDenunciaDao() {
-		return cidadeDao;
+		return denunciaDao;
 	}
 
 
-	public void setDenunciaDao(DenunciaDao usuarioDao) {
-		this.cidadeDao = usuarioDao;
+	public void setDenunciaDao(DenunciaDao denunciaDao) {
+		this.denunciaDao = denunciaDao;
 	}
 
 	public String salvar(){
-		cidadeDao.inserir(cidade);
-		return "listarusuarios?faces-redirect=true";
+		denunciaDao.inserir(denuncia);
+		return "listardenuncias?faces-redirect=true";
 	}
 	
 	public String excluir(String idParam){
 		Long id = Long.valueOf(idParam);
-		cidadeDao.excluir(id);
+		denunciaDao.excluir(id);
 		return "";
 	}
 
 	public String editar(String idParam){
 		Long id = Long.valueOf(idParam);
-		cidade = cidadeDao.buscarPorId(id);
-		return "cadastrousuario";
+		denuncia = denunciaDao.buscarPorId(id);
+		return "cadastrodenuncia";
 	}
-*/
+
 }

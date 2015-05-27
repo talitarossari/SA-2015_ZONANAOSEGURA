@@ -36,7 +36,7 @@ public class LocalDao extends Dao  {
 	@SuppressWarnings("unchecked")
 	public List<Local> listar() {
 		try {
-			Query query = getEntityManager().createQuery("From Local",
+			Query query = getEntityManager().createQuery("From LocalMB",
 					Local.class);
 			List<Local> locais = (List<Local>) query;
 			return locais;

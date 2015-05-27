@@ -36,7 +36,7 @@ public class TipoCrimeDao extends Dao  {
 	@SuppressWarnings("unchecked")
 	public List<TipoCrime> listar() {
 		try {
-			Query query = getEntityManager().createQuery("From TipoCrime",
+			Query query = getEntityManager().createQuery("From TipoCrimeMB",
 					TipoCrime.class);
 			List<TipoCrime> crimes = (List<TipoCrime>) query;
 			return crimes;

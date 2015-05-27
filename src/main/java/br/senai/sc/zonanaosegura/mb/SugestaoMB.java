@@ -54,7 +54,7 @@ public class SugestaoMB {
 
 	public String salvar(){
 		sugestaoDao.inserir(sugestao);
-		return "listarusuarios?faces-redirect=true";
+		return "listarsugestoes?faces-redirect=true";
 	}
 	
 	public String excluir(String idParam){
@@ -66,7 +66,7 @@ public class SugestaoMB {
 	public String editar(String idParam){
 		Long id = Long.valueOf(idParam);
 		sugestao = sugestaoDao.buscarPorId(id);
-		return "cadastrousuario";
+		return "cadastrosugestoes";
 	}
 	
 }
