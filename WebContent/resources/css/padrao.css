@@ -1,4 +1,5 @@
 body {
+	overflow-x: hidden;
 	background-image:
 		url("#{resource['/img/elegant-grey-illumination.jpg']}");
 	background-repeat: no-repeat;

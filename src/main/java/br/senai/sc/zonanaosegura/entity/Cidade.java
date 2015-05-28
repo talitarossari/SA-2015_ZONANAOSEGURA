@@ -2,10 +2,12 @@ package br.senai.sc.zonanaosegura.entity;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+@Entity
 public class Cidade {
 
 	@Id
