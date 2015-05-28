@@ -1,8 +1,11 @@
 package br.senai.sc.zonanaosegura.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class TipoCrime {
@@ -11,6 +14,8 @@ public class TipoCrime {
 	@GeneratedValue
 	private Long id;
 	private String descricao;
+	@OneToMany
+	private List<Denuncia> denuncias;
 	
 	public Long getId() {
 		return id;
@@ -23,6 +28,12 @@ public class TipoCrime {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public List<Denuncia> getDenuncias() {
+		return denuncias;
+	}
+	public void setDenuncias(List<Denuncia> denuncias) {
+		this.denuncias = denuncias;
 	}
 
 }

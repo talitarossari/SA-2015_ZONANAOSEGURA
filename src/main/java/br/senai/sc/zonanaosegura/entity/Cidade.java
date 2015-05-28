@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 public class Cidade {
 
@@ -11,6 +12,7 @@ public class Cidade {
 	@GeneratedValue
 	private Long id;
 	private String cidade;
+	@ManyToMany
 	private List<Local> locais;
 	
 	public Long getId() {
