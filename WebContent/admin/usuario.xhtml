@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/menuAdmin.xhtml">
+	<ui:define name="title">
+	    Usuarios
+	</ui:define>
+	<ui:define name="content">
+		<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12 page-header" style="margin-top: 0%; padding-bottom: 0px; margin: 20px 0px 0px;">
+							<div class="col-lg-10">
+								<div>
+									<div class="titulosOpcoes"><span>ZNS - </span> Usuarios</div>
+								</div>
+							</div>
+							<div class="col-lg-2">
+							<h:graphicImage style="width: 158px; height:145px; margin-top: 4%" library="img" name="ApiThief.png" />
+							</div>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
+						<nav class="navbar navbar-default" style="margin-bottom: 0;" >
+							<div class="container-fluid" style="background-color:#FF8080 !important;">
+								<div class=" navbar-left" style="margin-right: 0px;">
+								<p class="navbar-text"><h:link outcome="addUsuario"><span class="glyphicon glyphicon-plus "></span><span class="glyphicon glyphicon-user "></span> Adicionar Usuario</h:link></p>
+								
+								
+								</div>
+								<div class=" navbar-right" style="margin-right: 0px;">
+									<form action="" class="search-form">
+										<div class="form-group has-feedback" style="top: 7px;">
+											<label for="search" class="sr-only">Search</label>
+											<input type="text" class="form-control" name="search" id="search" placeholder="search"></input>
+											<span class="glyphicon glyphicon-search form-control-feedback"></span>
+										</div>
+									</form>
+								</div>
+						  </div>
+						</nav>						
+					</div>			
+	                <div class="row">
+	                    <div class="col-lg-12">
+	                    <h:form>
+		                    <h:dataTable styleClass="table table-striped" value="#{usuarioMB.usuarios}" var="item">
+			                    <h:column>
+									<f:facet name="header">ID</f:facet>
+									<h:outputText value="#{item.id}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Login</f:facet>
+									<h:outputText value="#{item.login}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Nome</f:facet>
+									<h:outputText value="#{item.usuario}" />
+								</h:column>
+								<h:column>
+								<f:facet name="header">Editar</f:facet>
+									<h:commandLink styleClass="btn btn-default"
+										action="#{usuarioMB.editar(item.id)}">
+										<span class="glyphicon glyphicon-pencil"></span>
+									</h:commandLink>
+								</h:column>
+								<h:column>
+								<f:facet name="header">Excluir</f:facet>
+									<h:commandLink styleClass="btn btn-default" onclick="return confirm('Tem certeza?');"
+										action="#{usuarioMB.excluir(item.id)}">
+										<span class="glyphicon glyphicon-trash"></span>
+									</h:commandLink>
+								</h:column>
+							</h:dataTable>
+						</h:form>
+	             	</div>
+	     		</div>
+	                
+	</ui:define>
+</ui:composition>
+</html>

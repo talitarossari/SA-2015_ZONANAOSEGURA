@@ -32,15 +32,16 @@ public class UsuarioMB {
 
 
 	public List<Usuario> getUsuarios() {
+		if(usuarios == null){
+			usuarios = usuarioDao.listarTodos();
+		}
 		return usuarios;
 	}
 
 
 	public void setUsuarios(List<Usuario> usuarios) {
-		if(usuarios == null){
-			usuarios = usuarioDao.listar();
-		}
 		this.usuarios = usuarios;
+		
 	}
 
 
@@ -55,19 +56,19 @@ public class UsuarioMB {
 
 	public String salvar(){
 		usuarioDao.inserir(usuario);
-		return "listarusuarios?faces-redirect=true";
+		return "usuario?faces-redirect=true";
 	}
 	
 	public String excluir(String idParam){
 		Long id = Long.valueOf(idParam);
 		usuarioDao.excluir(id);
-		return "";
+		return "usuario";
 	}
 
 	public String editar(String idParam){
 		Long id = Long.valueOf(idParam);
 		usuario = usuarioDao.buscarPorId(id);
-		return "cadastrousuario";
+		return "addusuario";
 	}
 	
 

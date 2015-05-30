@@ -2,9 +2,6 @@ package br.senai.sc.zonanaosegura.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import br.senai.sc.zonanaosegura.entity.Usuario;
@@ -12,10 +9,7 @@ import br.senai.sc.zonanaosegura.entity.Usuario;
 
 public class UsuarioDao extends Dao {
 	public void inserir(Usuario usuario) {
-		try {
-			getEntityManager().persist(usuario);
-		} catch (Exception e) {
-		}
+			getEntityManager().merge(usuario);
 	}
 
 	public void excluir(Long id) {
@@ -23,29 +17,17 @@ public class UsuarioDao extends Dao {
 		getEntityManager().remove(usuario);
 	}
 
-	public Usuario buscarPorId(Long id) {
-		Usuario usuario = getEntityManager().getReference(Usuario.class, id);
-		return usuario;
-
-	}
-
 	public void atualizar(Usuario usuario) {
-		try {
-			getEntityManager().merge(usuario);
-		} catch (Exception e) {
-		}
-
+		getEntityManager().merge(usuario);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Usuario> listar() {
-		try {
-			Query query = getEntityManager().createQuery("From Usuario",
-					Usuario.class);
-			List<Usuario> usuarios = (List<Usuario>) query;
-			return usuarios;
-		} catch (Exception e) {
-		}
-		return null;
+	public List<Usuario> listarTodos() {
+			Query query = getEntityManager().createQuery("From Usuario", Usuario.class);
+			return query.getResultList();
+	}
+	
+	public Usuario buscarPorId(Long id) {
+		return getEntityManager().find(Usuario.class, id);
 	}
 }

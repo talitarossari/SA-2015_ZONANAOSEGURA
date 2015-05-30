@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -21,7 +19,8 @@ public class JPAFilter implements Filter {
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		logger = Logger.getLogger(this.getClass().getName());
-		logger.info("Ligação feita!");
+		
+		logger.info("Criou O EMF");
 		JPAUtil.creteEntityManagerFactory();
 	}
 
@@ -39,7 +38,7 @@ public class JPAFilter implements Filter {
 	
 	@Override
 	public void destroy() {
-		logger.warning("Ligação Encerrada");
+		logger.warning("Fechou O EMF");
 		JPAUtil.entityManagerFactoryClose();
 	}
 }

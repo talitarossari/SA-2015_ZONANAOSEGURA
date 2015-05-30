@@ -3,69 +3,102 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html">
-<head>
+<h:head>
 <title>Admin - <ui:insert name="title">Inicio</ui:insert></title>
 
-<h:outputScript library="jquery" name="jquery.js" />
-<h:outputScript library="js" name="admin-menu.js" />
-<h:outputScript library="js" name="menuLateral.js" />
-<h:outputScript library="js" name="metisMenu.js" />
-<h:outputScript library="js" name="morris.js" />
-<h:outputScript library="js" name="bootstrap.js" />
-<h:outputStylesheet library="css" name="admin.css" />
-<h:outputStylesheet library="css" name="admin.css" />
+<h:outputScript library="jquery" name="jquery.js"/>
+<h:outputStylesheet library="css" name="padrao.css" />
+<h:outputStylesheet library="css" name="padraocss2.css" />
+<h:outputStylesheet library="css" name="simple-sidebar.css" />
+<h:outputStylesheet library="css" name="simple-sidebar.css" />
+<h:outputStylesheet library="css" name="bootstrap.css" />
+<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+<h:outputScript library="js" name="dropdowns.js" />
+</h:head>
 
-</head>
-
-<body>
+<body style="overflow-x: hidden;">
 	<ui:debug hotkey="x"
 		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
-	<div id="wrapper">
-		<nav class="navbar navbar-inverse" style="margin-bottom: 0%;">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header"
-				style="height: 90px; border-bottom: 1px solid #C5C5C5;">
-				<a class="navbar-brand" href="index.xhtml"> <h:graphicImage
-						style="height: 90px;" library="img" name="logo.png" />
-				</a>
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse"
-					style="margin-top: 28px; margin-right: 20px;"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar" style="background-color: #F00"></span> <span
-						class="icon-bar" style="background-color: #F00"></span> <span
-						class="icon-bar" style="background-color: #F00"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right"
-					style="margin-right: 15px; height: 90px;">
-					<li><a class="navbar-brand navbar-right" href="index.xhtml"
-						style="margin-right: 0px;"> <h:graphicImage
-								style="height: 90px; margin-right: -61px;padding: 19px;"
-								library="img" name="button.png" />
-					</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="navbar-default sidebar" role="navigation">
-			<div class="sidebar-nav navbar-collapse">
-				<ul id="side-menu" class="nav">
-					<li class="sidebar-search"></li>
-					<li>Painel</li>
-					<li>Usuarios</li>
-					<li>Denuncias</li>
-					<li>Sujestoes</li>
-					<li></li>
-					<li></li>
-					<li class="active"></li>
-				</ul>
-			</div>
-		</div>
-		</nav>
+	    <div id="wrapper">
+			<nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0%; border-bottom: 5px solid #B00B0B;">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<h:link outcome="/index" class="navbar-brand" style="padding: 0px;"/> <h:graphicImage
+								style="height: 50px;" library="img" name="logo.png" />
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							style="margin-top: 28px; margin-right: 20px;"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar" style="background-color: #F00"></span> <span
+								class="icon-bar" style="background-color: #F00"></span> <span
+								class="icon-bar" style="background-color: #F00"></span>
+						</button>
+					</div>
+					
+					<ul class="nav navbar-top-links navbar-right">
+		                <li class="dropdown">
+		                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+		                        <span class="glyphicon glyphicon-user"></span>   <span class="glyphicon glyphicon-menu-right"></span>
+		                    </a>
+		                    <ul class="dropdown-menu dropdown-user dropdown">
+		                        <li> <h:link outcome="/404"><span class="glyphicon glyphicon-user"></span> Seu perfil </h:link>
+		                        </li>
+		                        <li><h:link outcome="/404"><span class="glyphicon glyphicon-wrench"></span> Configuracoes</h:link>
+		                        </li>
+		                        <li class="divider"></li>
+		                        <li><h:link outcome="/404"><span class="glyphicon glyphicon-log-in"></span>  Sair</h:link>
+		                        </li>
+		                    </ul>
+		                    <!-- /.dropdown-user -->
+		                </li>
+		                <!-- /.dropdown -->
+		            </ul>
+					
+				<!-- Sidebar -->
+					<div class="navbar-default sidebar" role="navigation">
+								<div class="sidebar-nav navbar-collapse">
+											<ul class="nav in" id="side-menu">    
+									<li>
+										<h:link outcome="/404"><span class="glyphicon glyphicon-dashboard"></span> Painel</h:link>
+									</li>
+									<li>
+										<h:link outcome="/admin/usuario"><span class="glyphicon glyphicon-user"></span> Usuarios</h:link>
+									</li>
+									<li>
+										<h:link outcome="#" class="desce1"><span class="glyphicon glyphicon-ban-circle"></span> Denuncias<span class="glyphicon glyphicon-menu-right dropdown2" style="display: inline-block;"></span></h:link>
+											<ul style="height: 0px;" aria-expanded="false" class="nav nav-second-level collapse " id="desce1">
+												<li>
+													<h:link outcome="#" class="desce2"><span class="glyphicon glyphicon-map-marker"></span> Locais<span class="glyphicon glyphicon-menu-right dropdown3" style="display: inline-block;"></span></h:link>
+													<ul style="height: 0px;" aria-expanded="false" class="nav nav-third-level collapse2 " id="desce2">
+														<li>
+															<h:link outcome="/404"><span class="glyphicon glyphicon-home"></span> Cidades</h:link>
+														</li>
+													</ul>
+												</li>
+												<li>
+													<h:link outcome="/404"><span class="glyphicon glyphicon-phone"></span> Objetos</h:link>
+												</li>
+											</ul>
+									</li>
+									<li>
+										<h:link outcome="/404"><span class="glyphicon glyphicon-comment"></span> Sugestoes</h:link>
+									</li>
+									<li>
+										<h:link outcome="/404"><span class="glyphicon glyphicon-cog"></span> Personalizacao</h:link>
+									</li>
+							</ul>														
+					</div>
+					</div>
+			</nav>
+	        <!-- /#sidebar-wrapper -->
+	
+	        <!-- Page Content -->
+	        <div id="page-wrapper" style="min-height: 600px;">
+	            <ui:insert name="content">
+					<h2>OLÁ, VOCÊ ESTA NO PERFIL ADMS</h2>
+				</ui:insert>
+	        </div>
 	</div>
 </body>
 
