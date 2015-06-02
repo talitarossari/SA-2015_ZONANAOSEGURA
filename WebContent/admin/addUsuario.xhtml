@@ -14,36 +14,17 @@
 		<div class="col-md-6 col-md-offset-3">
 			<h:form>
 				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
-					<div class="titulosOpcoes">
-						<h1>Editar Usuario</h1>
-					</div>
-				</h:panelGroup>
-				<h:panelGroup rendered="#{empty usuarioMB.usuario.id}">
-					<div class="titulosOpcoes">
-						<h1>Cadastrar Usuario</h1>
-					</div>
-					
-				</h:panelGroup>
-				
-				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
 					<h:outputLabel value="ID" />
 					<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.id}"
 						readonly="true" />
 				</h:panelGroup>
-	
 				<h:inputHidden value="#{usuarioMB.usuario.id}" />
 				<h:outputLabel value="Nome" />
 				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.usuario}" />
 				<h:outputLabel value="Login" />
 				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.login}" />
 				<h:outputLabel value="Senha" />
-				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
-					<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.senha}"
-						readonly="true" />
-				</h:panelGroup>
-				<h:panelGroup rendered="#{empty usuarioMB.usuario.id}">
-					<h:inputSecret type="password" placeholder="Password" styleClass="form-control" value="#{usuarioMB.usuario.senha}" />
-				</h:panelGroup>
+				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.senha}" readonly="false" />		
 				<div style="margin-top: 3%;">
 					<h:commandButton action="#{usuarioMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />

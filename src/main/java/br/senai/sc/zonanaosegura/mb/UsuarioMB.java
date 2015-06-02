@@ -62,7 +62,7 @@ public class UsuarioMB {
 	public String excluir(String idParam){
 		Long id = Long.valueOf(idParam);
 		usuarioDao.excluir(id);
-		return "usuario";
+		return "usuario?faces-redirect=true";
 	}
 
 	public String editar(String idParam){

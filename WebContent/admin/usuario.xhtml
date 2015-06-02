@@ -62,6 +62,10 @@
 									<h:outputText value="#{item.usuario}" />
 								</h:column>
 								<h:column>
+									<f:facet name="header">Senha</f:facet>
+									<h:outputText value="#{item.senha}" />
+								</h:column>
+								<h:column>
 								<f:facet name="header">Editar</f:facet>
 									<h:commandLink styleClass="btn btn-default"
 										action="#{usuarioMB.editar(item.id)}">
