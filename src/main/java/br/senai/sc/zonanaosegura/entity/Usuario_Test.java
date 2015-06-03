@@ -3,9 +3,14 @@ package br.senai.sc.zonanaosegura.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 @Entity
-public class Usuario {
+@Table(name = "usuario")
+@NamedQueries({ @NamedQuery(name = "Usuario.findAll", query = "SELECT p FROM Usuario p") })
+public class Usuario_Test {
 
 	@Id
 	@GeneratedValue
@@ -14,11 +19,11 @@ public class Usuario {
 	private String usuario;
 	private String senha;
 		
-	public Usuario(){
+	public Usuario_Test(){
 		
 	}
 	
-	public Usuario(String usuario, String senha) {
+	public Usuario_Test(String usuario, String senha) {
 		this.usuario = usuario;
 		this.senha = senha;
 	}
