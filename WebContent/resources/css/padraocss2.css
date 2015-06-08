@@ -110,7 +110,7 @@ a:hover, a:focus {
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;
-        margin: 0px 0px 0px 185px;
+        margin: 0px 0px 0px 0px;
         padding: 0px 0px;
         border-left: 1px solid #e7e7e7;
     }

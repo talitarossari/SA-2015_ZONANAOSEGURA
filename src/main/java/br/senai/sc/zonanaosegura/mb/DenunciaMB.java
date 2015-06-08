@@ -3,10 +3,11 @@ package br.senai.sc.zonanaosegura.mb;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 
 import br.senai.sc.zonanaosegura.dao.DenunciaDao;
 import br.senai.sc.zonanaosegura.entity.Denuncia;
-
+@ManagedBean
 public class DenunciaMB {
 	
 	private Denuncia denuncia;

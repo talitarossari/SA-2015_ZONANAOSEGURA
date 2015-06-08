@@ -3,10 +3,11 @@ package br.senai.sc.zonanaosegura.mb;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 
 import br.senai.sc.zonanaosegura.dao.SugestaoDao;
 import br.senai.sc.zonanaosegura.entity.Sugestao;
-
+@ManagedBean
 public class SugestaoMB {
 
 	private Sugestao sugestao;
@@ -31,14 +32,14 @@ public class SugestaoMB {
 
 
 	public List<Sugestao> getSugestoes() {
+		if(sugestoes == null){
+			sugestoes = sugestaoDao.listar();
+		}
 		return sugestoes;
 	}
 
 
 	public void setSugestoes(List<Sugestao> sugestao) {
-		if(sugestao == null){
-			sugestao = sugestaoDao.listar();
-		}
 		this.sugestoes = sugestao;
 	}
 

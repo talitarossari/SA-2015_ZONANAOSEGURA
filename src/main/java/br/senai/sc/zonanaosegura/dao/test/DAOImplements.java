@@ -1,4 +1,4 @@
-package br.senai.sc.zonanaosegura.dao;
+package br.senai.sc.zonanaosegura.dao.test;
 
 import java.util.List;
 import java.util.logging.Logger;

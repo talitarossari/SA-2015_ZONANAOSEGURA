@@ -3,10 +3,11 @@ package br.senai.sc.zonanaosegura.mb;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 
 import br.senai.sc.zonanaosegura.dao.CidadeDao;
 import br.senai.sc.zonanaosegura.entity.Cidade;
-
+@ManagedBean
 public class CidadeMB {
 	
 	private Cidade cidade;

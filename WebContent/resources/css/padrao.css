@@ -7,3 +7,23 @@ body {
 	background-position: center;
 	background-size: 100%;
 }
+::-webkit-scrollbar{
+     width: 14px;
+}
+::-webkit-scrollbar-track{
+     box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+}
+::-webkit-scrollbar-track-piece{
+  background: #BDBDBD;
+  border-radius: 4px;
+  border: 1px solid #BDBDBD;
+}
+::-webkit-scrollbar-thumb {
+    background: #848484;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+    border-radius:4px;  
+    border:1px solid #848484;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #fff;
+}: #000; 

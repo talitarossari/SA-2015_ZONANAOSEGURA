@@ -3,10 +3,11 @@ package br.senai.sc.zonanaosegura.mb;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 
 import br.senai.sc.zonanaosegura.dao.ObjetoDao;
 import br.senai.sc.zonanaosegura.entity.Objeto;
-
+@ManagedBean
 public class ObjetoMB  {
 	
 	private Objeto objeto;

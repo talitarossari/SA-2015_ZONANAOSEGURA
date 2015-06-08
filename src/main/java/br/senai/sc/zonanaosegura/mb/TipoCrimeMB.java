@@ -3,10 +3,12 @@ package br.senai.sc.zonanaosegura.mb;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 
 import br.senai.sc.zonanaosegura.dao.TipoCrimeDao;
 import br.senai.sc.zonanaosegura.entity.TipoCrime;
 
+@ManagedBean
 public class TipoCrimeMB  {
 	
 	private TipoCrime tipo;
