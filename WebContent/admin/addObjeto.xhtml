@@ -13,16 +13,17 @@
 	<ui:define name="content">
 		<div class="col-md-6 col-md-offset-3">
 			<h:form>
-				<h:panelGroup rendered="#{not empty sugestaoMB.sugestao.id}">
+				<h:panelGroup rendered="#{not empty objetoMB.objeto.id}">
 					<h:outputLabel value="ID" />
-					<h:inputText styleClass="form-control" value="#{sugestaoMB.sugestao.id}"
+					<h:inputText styleClass="form-control" value="#{objetoMB.objeto.id}"
 						readonly="true" />
 				</h:panelGroup>
-				<h:inputHidden value="#{sugestaoMB.sugestao.id}" />
-				<h:outputLabel value="Sugestao" />
-				<h:inputTextarea styleClass="form-control" value="#{sugestaoMB.sugestao.sugestao}" />		
+				<h:inputHidden value="#{objetoMB.objeto.id}" />
+				<h:outputLabel value="Descrição" />
+				<h:inputText styleClass="form-control" value="#{objetoMB.objeto.descricao}" />	
+				<h:link outcome="#" style="margin-top: 3%;" styleClass="btn btn-default" ><span class="glyphicon glyphicon-folder-open" ></span>  Procurar Logo </h:link>
 				<div style="margin-top: 3%;">
-					<h:commandButton action="#{sugestaoMB.salvar()}" value="Salvar"
+					<h:commandButton action="#{objetoMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />
 					<button class="btn btn-default" type="reset">Restaurar</button>
 				</div>

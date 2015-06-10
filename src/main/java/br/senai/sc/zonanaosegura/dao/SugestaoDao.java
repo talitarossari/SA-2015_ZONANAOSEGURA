@@ -9,10 +9,7 @@ import br.senai.sc.zonanaosegura.entity.Sugestao;
 
 public class SugestaoDao  extends Dao {
 	public void inserir(Sugestao sugestao) {
-		try {
-			getEntityManager().persist(sugestao);
-		} catch (Exception e) {
-		}
+			getEntityManager().merge(sugestao);
 	}
 
 	public void excluir(Long id) {
@@ -27,22 +24,12 @@ public class SugestaoDao  extends Dao {
 	}
 
 	public void atualizar(Sugestao sugestao) {
-		try {
 			getEntityManager().merge(sugestao);
-		} catch (Exception e) {
-		}
-
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Sugestao> listar() {
-		try {
-			Query query = getEntityManager().createQuery("From Sugestao",
-					Sugestao.class);
-			List<Sugestao> sugestoes = (List<Sugestao>) query;
-			return sugestoes;
-		} catch (Exception e) {
-		}
-		return null;
+			Query query = getEntityManager().createQuery("From Sugestao", Sugestao.class);
+			return  query.getResultList();
 	}
 }

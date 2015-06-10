@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/padraoAdm.xhtml">
+	<ui:define name="title">
+	    Usuarios
+	</ui:define>
+	<ui:define name="tituloPagina">Objeto</ui:define>
+	<ui:define name="adicionarObjeto"><h:link outcome="addObjeto"><span class="glyphicon glyphicon-plus "></span><span class="glyphicon glyphicon-phone"></span> Adicionar Objeto </h:link></ui:define>
+	<ui:define name="tabela">
+		<h:dataTable styleClass="table table-striped"  value="#{objetoMB.objetos}" var="item">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{item.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Descricao</f:facet>
+				<h:outputText value="#{item.descricao}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Logo</f:facet>
+				<h:outputText value="#{item.logo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandLink styleClass="btn btn-default"
+						action="#{objetoMB.editar(item.id)}">
+					<span class="glyphicon glyphicon-pencil"></span>
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+					<h:commandLink styleClass="btn btn-default" onclick="return confirm('Tem certeza?');"
+						 action="#{objetoMB.excluir(item.id)}">
+						<span class="glyphicon glyphicon-trash"></span>
+					</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	
+	</ui:define>
+</ui:composition>
+</html>

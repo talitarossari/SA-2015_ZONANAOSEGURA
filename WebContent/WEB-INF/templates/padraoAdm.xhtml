@@ -10,6 +10,7 @@
 <h:outputScript library="jquery" name="jquery.js"/>
 <h:outputStylesheet library="css" name="bootstrap.css" />
 <h:outputStylesheet library="css" name="padrao.css" />
+<h:outputStylesheet library="css" name="padraocss2.css" />
 <h:outputStylesheet library="css" name="sb-admin.css" />
 <h:outputStylesheet library="css" name="morris.css" />
 <h:outputScript library="js" name="dropdowns.js" />
@@ -63,7 +64,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <h:link outcome="/admin/usuario"><i class="glyphicon glyphicon-dashboard"></i> Painel</h:link>
+                        <h:link outcome="/admin/indexAdm"><i class="glyphicon glyphicon-dashboard"></i> Painel</h:link>
                     </li>
                     <li>
                         <h:link outcome="/admin/usuario"><i class="glyphicon glyphicon-user"></i> Usuarios</h:link>
@@ -80,15 +81,15 @@
 									</ul>
                             </li>
                             <li>
-                                <h:link outcome="/admin/usuario"><i class="glyphicon glyphicon-phone"></i> Objetos</h:link>
+                                <h:link outcome="/admin/objeto"><i class="glyphicon glyphicon-phone"></i> Objetos</h:link>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <h:link outcome="/admin/usuario"><i class="glyphicon glyphicon-comment"></i> Sugestoes</h:link>
+                        <h:link outcome="/admin/sugestaoAdmin"><i class="glyphicon glyphicon-comment"></i> Sugestoes</h:link>
                     </li>
                     <li>
-                        <h:link outcome="/admin/usuario"><i class="glyphicon glyphicon-cog"></i> Personalizacao</h:link>
+                        <h:link outcome="/admin/configuracao"><i class="glyphicon glyphicon-cog"></i> Personalizacao</h:link>
                     </li>
                 </ul>
             </div>

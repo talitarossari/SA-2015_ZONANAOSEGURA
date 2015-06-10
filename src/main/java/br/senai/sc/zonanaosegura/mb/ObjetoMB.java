@@ -26,47 +26,48 @@ public class ObjetoMB  {
 	}
 
 
-	public void setObjeto(Objeto local) {
-		this.objeto = local;
+	public void setObjeto(Objeto objeto) {
+		this.objeto = objeto;
 	}
 
 
 	public List<Objeto> getObjetos() {
+		if(objetos == null){
+			objetos = objetoDao.listar();
+		}
 		return objetos;
 	}
 
 
-	public void setObjetos(List<Objeto> locais) {
-		if(locais == null){
-			locais = objetoDao.listar();
-		}
-		this.objetos = locais;
+	public void setObjetos(List<Objeto> objetos) {
+
+		this.objetos = objetos;
 	}
 
 
-	public ObjetoDao getLocalDao() {
+	public ObjetoDao getObjetoDao() {
 		return objetoDao;
 	}
 
 
-	public void setDenunciaDao(ObjetoDao localDao) {
-		this.objetoDao = localDao;
+	public void setDenunciaDao(ObjetoDao objetoDao) {
+		this.objetoDao = objetoDao;
 	}
 
 	public String salvar(){
 		objetoDao.inserir(objeto);
-		return "listarobjetos?faces-redirect=true";
+		return "objeto?faces-redirect=true";
 	}
 	
 	public String excluir(String idParam){
 		Long id = Long.valueOf(idParam);
 		objetoDao.excluir(id);
-		return "";
+		return "objeto?faces-redirect=true";
 	}
 
 	public String editar(String idParam){
 		Long id = Long.valueOf(idParam);
 		objeto = objetoDao.buscarPorId(id);
-		return "cadastroobjeto";
+		return "addobjeto";
 	}
 }

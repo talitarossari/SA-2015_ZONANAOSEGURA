@@ -11,6 +11,7 @@ public class Objeto {
 	@GeneratedValue
 	private Long id;
 	private String descricao;
+	private String logo;
 	
 	public Long getId() {
 		return id;
@@ -24,6 +25,11 @@ public class Objeto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+	public String getLogo() {
+		return logo;
+	}
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
 	
 }

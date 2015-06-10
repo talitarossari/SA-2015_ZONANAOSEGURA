@@ -55,19 +55,19 @@ public class SugestaoMB {
 
 	public String salvar(){
 		sugestaoDao.inserir(sugestao);
-		return "listarsugestoes?faces-redirect=true";
+		return "sugestaoAdmin?faces-redirect=true";
 	}
 	
 	public String excluir(String idParam){
 		Long id = Long.valueOf(idParam);
 		sugestaoDao.excluir(id);
-		return "";
+		return "sugestaoAdmin?faces-redirect=true";
 	}
 
 	public String editar(String idParam){
 		Long id = Long.valueOf(idParam);
 		sugestao = sugestaoDao.buscarPorId(id);
-		return "cadastrosugestoes";
+		return "addsugestao";
 	}
 	
 }
