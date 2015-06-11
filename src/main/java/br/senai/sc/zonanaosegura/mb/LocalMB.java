@@ -9,10 +9,38 @@ import br.senai.sc.zonanaosegura.dao.LocalDao;
 import br.senai.sc.zonanaosegura.entity.Local;
 @ManagedBean
 public class LocalMB {
-	
+	private String latitude;
+	private String longitude;
 	private Local local;
 	private List<Local> locais;
 	private LocalDao localDao;
+	
+	public String getLatitude() {
+		if(latitude == null){
+			latitude = "-25";
+		}
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		if(longitude == null){
+			longitude = "-51.6588";
+		}
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	
+	public String save(){
+		System.out.println("Latitude: " + latitude);
+		System.out.println("Longitude: " + longitude);
+		return "";
+	}
+
+	
 	
 	@PostConstruct
 	public void initMB() {
