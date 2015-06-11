@@ -17,15 +17,28 @@
 	height:100%;
 }
 
-.sugestao {
-	background-image: url("#{resource['/img/sbar.png']}") ;
+.sug{
 	position: absolute;
 	top: 0px;
 	z-index: 100;
+	right: 0px;
+	width: auto;
+  	height: 159px;
+}
+
+#sugestao {
+	background-image: url("#{resource['/img/sbar.png']}") ;
 	background-size: 100% 100%;
-	right: 0px;.
 	width: 27px;
-  height: 159px;
+  	height: 159px;
+  	cursor:pointer;
+}
+
+#enviarSugestao{
+	display:none;
+	width:50%;
+	height:50%;
+	background-color: #000;
 }
 
 .tituloZona{
