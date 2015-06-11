@@ -20,6 +20,7 @@
 						<h:outputLabel class="seguranca">Verifique e ajude a Manter a Seguranca para todos!</h:outputLabel>
 					</div>
 					<div class="col-md-6 altura">
+					<div class="col-md-12">
 						<form action="" class="search-form">
 							<label class="tituloZona">Veja aqui se sua zona está segura!</label>
 							<div class="form-group has-feedback" style="top: 7px;">
@@ -28,11 +29,32 @@
 								<span class="glyphicon glyphicon-search form-control-feedback lupa"></span>
 							</div>
 						</form>
+						</div>
+						<div class="col-md-12">
+						
+						<h:graphicImage class="img-responsive"  library="img" name="youtubil.png" />
+						</div>
+						
+						
 					</div>
 					<div class="sug" id="sugestao">
-							<div id="enviarSugestao">
-							</div>
+						<h:outputScript library="js" name="sugestao.js" />
+						<div class="sug" id="enviarSugestao">
+						<div class="col-md-12">
+							<h:form>
+								<h:outputLabel value="Sugestao" />
+								<h:inputTextarea styleClass="form-control" value="#{sugestaoMB.sugestao.sugestao}" />		
+								<div style="margin-top: 3%;">
+									<h:commandButton action="#{sugestaoMB.salvar()}" value="Salvar"
+										styleClass="btn btn-default" />
+									<button class="btn btn-default" type="reset">Restaurar</button>
+								</div>
+								</h:form>
+							</div>	
+					
 					</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
