@@ -5,3 +5,8 @@ $(function(){
 				$(el.parentElement).addClass('active');
 	});
 });
+
+
+$('.sugestao').click(function (){
+	
+});
