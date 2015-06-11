@@ -9,6 +9,40 @@
 	height: 100%;
 }
 
+.campo{
+	background-color: #CACACA;
+}
+
+.altura{
+	height:100%;
+}
+
+.sugestao {
+   background-color: red;
+   position: absolute;
+   top: 0px;
+   height: 150px;
+   width: 35px;
+   z-index: 100;
+   right: 0px;
+   vertical-align: text-top;
+}
+
+.tituloZona{
+	color:#000;
+	font-size: 21px;
+}
+.lupa{
+	color:#fff;
+}
+
+.seguranca{
+	font-size:23px;
+	text-align: center;
+	width: 100%;
+	color: #000;
+}
+
 html{
 	  height: 100%;
 	    overflow: hidden;

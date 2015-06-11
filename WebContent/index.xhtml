@@ -10,11 +10,29 @@
 	<ui:define name="title">
 	    Inicio
 	</ui:define>
-	<div id="header">
-		<ui:define name="header">
-			<h:graphicImage class="img-responsive" style="width: 100%;"
-				library="img" name="bg.png" />
-		</ui:define>
-	</div>
+	<ui:define name="header">
+		<div class="containt-fluid fundo" >
+			<div class="containt altura" >
+				<div class="col-md-12 altura">
+					<div class="col-md-4">
+						<h:graphicImage class="img-responsive"  library="img" name="ApiThief.png" />
+						<h:outputLabel class="seguranca">Você sabe está seguro?</h:outputLabel>
+						<h:outputLabel class="seguranca">Nos sabemos! E você também vai saber!</h:outputLabel>
+					</div>
+					<div class="col-md-6 altura">
+						<form action="" class="search-form">
+							<label class="tituloZona">Veja aqui se sua zona está segura!</label>
+							<div class="form-group has-feedback" style="top: 7px;">
+								<label for="search" class="sr-only">Digite aqui o nome da sua cidade</label>
+								<input  class="form-control campo" name="search" id="search" placeholder="Digite o ID"></input>
+								<span class="glyphicon glyphicon-search form-control-feedback lupa"></span>
+							</div>
+						</form>
+					</div>
+					<div class="sugestao">SUGESTOES</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
 </ui:composition>
 </html>
