@@ -12,7 +12,9 @@
 	    Fui Roubado
 	</ui:define>
 	<div id="header">
+	
 		<ui:define name="content">
+		<div class="containt-fluid-fundo">
 		<div class="col-md-6">
 			<script type="text/javascript"
 			src="https://maps.googleapis.com/maps/api/js?sensor=true">
@@ -43,13 +45,10 @@
             	   alert("Current marker1 latlng is: " +  document.getElementById('form:idLon').value);
                }
             </script>
-           	 <h:selectOneMenu value="#{tipoCrimeMB.tipos}">
-   				<f:selectItem itemLabel="--"/>
-				<f:selectItems value="#{tipoCrimeMB.tipos}" var="tipo"
-				 itemLabel="#{tipo.tipo}" itemValue="#{tipo}" />	   							
-			 </h:selectOneMenu>	
+           	
             </h:form>
-            </div>           
+            </div> 
+             </div>	          
 		</ui:define>
 	</div>
 	

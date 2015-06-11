@@ -18,14 +18,13 @@
 }
 
 .sugestao {
-   background-color: red;
+	background-image: url("#{resource['/img/sbar.png']}") ;
    position: absolute;
    top: 0px;
    height: 150px;
    width: 35px;
    z-index: 100;
    right: 0px;
-   vertical-align: text-top;
 }
 
 .tituloZona{
