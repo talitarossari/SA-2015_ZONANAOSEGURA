@@ -14,6 +14,7 @@ public class TipoCrime {
 	@GeneratedValue
 	private Long id;
 	private String descricao;
+	private String icone;
 	@OneToMany
 	private List<Denuncia> denuncias;
 	

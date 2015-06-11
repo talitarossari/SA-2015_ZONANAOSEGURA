@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/padraoAdm.xhtml">
+	<ui:define name="title">
+		Perfil
+	</ui:define>
+	<ui:define name="content">
+		<div class="col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1">
+			<h:graphicImage class="img-responsive" library="img" name="login.png" />
+		</div>
+		<div class="col-md-6 col-xs-6">
+			<h:form>
+				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
+					<h:outputLabel value="ID" />
+					<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.id}"
+						readonly="true" />
+				</h:panelGroup>
+				<h:inputHidden value="#{usuarioMB.usuario.id}" />
+				<h:outputLabel value="Nome" />
+				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.usuario}" />
+				<h:outputLabel value="Login" />
+				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.login}" />
+				<h:outputLabel value="Senha" />
+				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.senha}" readonly="false" />		
+				<div style="margin-top: 3%;">
+					<h:commandButton action="#{usuarioMB.salvar()}" value="Salvar"
+						styleClass="btn btn-default" />
+					<button class="btn btn-default" type="reset">Restaurar</button>
+				</div>
+				</h:form>
+			</div>	
+	</ui:define>
+</ui:composition>
+</html>
