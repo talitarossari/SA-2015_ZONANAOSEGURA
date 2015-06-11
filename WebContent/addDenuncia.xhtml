@@ -6,12 +6,11 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:m="http://code.google.com/p/gmaps4jsf/">
-
-<ui:composition template="/WEB-INF/templates/padrao.xhtml">
+	
+<ui:composition template="/WEB-INF/templates/padraoDenuncia.xhtml">
 	<ui:define name="title">
 	    Fui Roubado
 	</ui:define>
-	<div id="header">
 	
 		<ui:define name="content">
 		<div class="containt-fluid-fundo">
@@ -21,9 +20,10 @@
     </script>
 		<h:form id="form">
 			<m:map width="400px" height="700px"
-				jsVariable="map1" zoom="4" address="BR">
+				jsVariable="map1" zoom="17" address=" florianopolis, BR">
 				<m:marker address="Florianopolis, BR" jsVariable="marker1"
 					draggable="true">
+					<m:icon shadowImageURL="http://www.google.com/mapfiles/shadow50.png" imageURL="#{resource['/img/markker.png']}"/>
 					<m:eventListener eventName="dragend"
 						jsFunction="marker1DragHandler" />
 				</m:marker>
@@ -42,7 +42,7 @@
             	   document.getElementById('form:idLat').value = event.latLng.A;
             	   document.getElementById('form:idLon').value = event.latLng.F;
                    
-            	   alert("Current marker1 latlng is: " +  document.getElementById('form:idLon').value);
+            	   alert("Você marcou o Local:" +  document.getElementById('form:idLon').value);
                }
             </script>
            	
@@ -50,7 +50,6 @@
             </div> 
              </div>	          
 		</ui:define>
-	</div>
 	
 </ui:composition>
 </html>

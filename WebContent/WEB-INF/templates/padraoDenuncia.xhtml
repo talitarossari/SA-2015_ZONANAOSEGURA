@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>ZNS - <ui:insert name="title"></ui:insert></title>
+
+	<h:outputScript library="webjars" name="jquery/2.1.4/jquery.js" />
+	<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+	<h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="darkly.bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="padrao2.css" />
+	
+</h:head>
+
+<body>
+	<ui:include src="/WEB-INF/templates/menu.xhtml" />
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+
+
+	<div id="content">
+		<ui:insert name="content">
+			
+		</ui:insert>
+	</div>
+
+	<div id="footer">
+		<ui:insert name="footer">
+		</ui:insert>
+	</div>
+
+</body>
+
+</html>
