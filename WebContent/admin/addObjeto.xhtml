@@ -6,13 +6,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="/WEB-INF/templates/padraoAdm.xhtml">
+<ui:composition template="/WEB-INF/templates/padraoImagens.xhtml">
 	<ui:define name="title">
 		Objeto
 	</ui:define>
 	<ui:define name="content">
 		<div class="col-md-6 col-md-offset-3">
-			<h:form>
+			<h:form enctype="multipart/form-data">
 				<h:panelGroup rendered="#{not empty objetoMB.objeto.id}">
 					<h:outputLabel value="ID" />
 					<h:inputText styleClass="form-control" value="#{objetoMB.objeto.id}"
@@ -21,7 +21,8 @@
 				<h:inputHidden value="#{objetoMB.objeto.id}" />
 				<h:outputLabel value="Descrição" />
 				<h:inputText styleClass="form-control" value="#{objetoMB.objeto.descricao}" />	
-				<h:link outcome="#" style="margin-top: 3%;" styleClass="btn btn-default" ><span class="glyphicon glyphicon-folder-open" ></span>  Procurar Logo </h:link>
+				
+				<h:inputFile style=" margin-top:3%;" value="#{objetoMB.objeto.logo}"></h:inputFile>
 				<div style="margin-top: 3%;">
 					<h:commandButton action="#{objetoMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />

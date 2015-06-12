@@ -13,6 +13,7 @@
 	<ui:define name="tituloPagina">Usuario</ui:define>
 	<ui:define name="adicionarObjeto"><h:link outcome="addUsuario"><span class="glyphicon glyphicon-plus "></span><span class="glyphicon glyphicon-user "></span> Adicionar Usuario </h:link></ui:define>
 	<ui:define name="tabela">
+	
 		<h:dataTable styleClass="table table-striped"  value="#{usuarioMB.usuarios}" var="item">
 			<h:column>
 				<f:facet name="header">ID</f:facet>

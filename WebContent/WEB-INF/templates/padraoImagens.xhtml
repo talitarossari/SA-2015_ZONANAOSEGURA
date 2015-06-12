@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<title>Admin - <ui:insert name="title">Inicio</ui:insert></title>
+
+<h:outputScript library="jquery" name="jquery.js"/>
+<h:outputStylesheet library="css" name="bootstrap.css" />
+<h:outputStylesheet library="css" name="padrao.css" />
+<h:outputStylesheet library="css" name="padraocss2.css" />
+<h:outputStylesheet library="css" name="sb-admin.css" />
+<h:outputStylesheet library="css" name="morris.css" />
+<h:outputScript library="js" name="dropdowns.js" />
+<h:outputScript library="js" name="morris/morris-data.js" />
+<h:outputScript library="js" name="morris/morris.js" />
+<h:outputScript library="js" name="morris/raphael.min.js" />
+<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+
+
+</h:head>
+
+<body style="overflow-x: hidden;">
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+	    <div id="wrapper">
+			
+			
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        	
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Navebar</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h:link outcome="/index" class="navbar-brand" style="padding: 0px;"><h:graphicImage style="height: 100%;" library="img" name="logo.png" /></h:link>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <h:outputScript library="js" name="menu.js" />
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <h:link outcome="/admin/perfil"><i class="glyphicon glyphicon-user"></i> Seu Perfil</h:link>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <h:link outcome="/login"><i class="glyphicon glyphicon-log-in"></i> Sair</h:link>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <h:link outcome="/admin/indexAdm"><i class="glyphicon glyphicon-dashboard"></i> Painel</h:link>
+                    </li>
+                    <li>
+                        <h:link outcome="/admin/usuario"><i class="glyphicon glyphicon-user"></i> Usuarios</h:link>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="glyphicon glyphicon-ban-circle"></i> Denuncias <i class=" glyphicon glyphicon-menu-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+								<a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="glyphicon glyphicon-map-marker"></i> Locais <i class=" glyphicon glyphicon-menu-down"></i></a>
+									<ul id="demo2" class="collapse">
+										<li>
+											<h:link outcome="/admin/usuario"><i class="glyphicon glyphicon-home"></i> Cidades</h:link>
+										</li>
+									</ul>
+                            </li>
+                            <li>
+                                <h:link outcome="/admin/objeto"><i class="glyphicon glyphicon-phone"></i> Objetos</h:link>
+                            </li>
+                            <li>
+		                        <h:link outcome="/admin/tipoCrime"><i class="glyphicon glyphicon-piggy-bank"></i> Tipo de Crimes</h:link>
+		                    </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h:link outcome="/admin/sugestaoAdmin"><i class="glyphicon glyphicon-comment"></i> Sugestoes</h:link>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+	        <div id="page-wrapper" style="min-height: 600px;">
+	            <ui:insert name="content">
+					<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12 page-header" style="margin-top: 0%; padding-bottom: 0px; margin: 20px 0px 0px;">
+							<div class="col-lg-10">
+								<div>
+									<div class="titulosOpcoes"><span>ZNS - </span> <ui:insert name="tituloPagina"> Padrao</ui:insert></div>
+								</div>
+							</div>
+							<div class="col-lg-2">
+							<h:graphicImage style="width: 158px; height:145px; margin-top: 4%" library="img" name="ApiThief.png" />
+							</div>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
+						<nav class="navbar navbar-default" style="margin-bottom: 0;" >
+							<div class="container-fluid" style="background-color:#FF8080 !important;">
+								<div class=" navbar-left" style="margin-right: 0px;">
+								<p class="navbar-text"><ui:insert name="adicionarObjeto">PADRAO</ui:insert></p>
+								
+								
+								</div>
+								<div class=" navbar-right" style="margin-right: 0px;">
+									<form action="" class="search-form">
+										<div class="form-group has-feedback" style="top: 7px;">
+											<label for="search" class="sr-only">Digite o ID Usuario</label>
+											<input type="text" class="form-control" name="search" id="search" placeholder="Digite o ID"></input>
+											<span class="glyphicon glyphicon-search form-control-feedback"></span>
+										</div>
+									</form>
+								</div>
+						  </div>
+						</nav>						
+					</div>			
+	                <div class="row">
+	                    <div class="col-lg-12">
+	                   
+		                  <ui:insert name="tabela">  
+		                   <h:form enctype="multipart/form-data">
+		                  	<h:dataTable styleClass="table table-striped"  value="#{Padrao}" var="item">
+			                    <h:column>
+									<f:facet name="header">PADRAO</f:facet>
+									<h:outputText value="#{item.id}" />
+								</h:column>
+								<h:column>
+								<f:facet name="header">PADRAO - EDITAR</f:facet>
+									<h:commandLink styleClass="btn btn-default"
+										action="#{usuarioMB.editar(item.id)}">
+										<span class="glyphicon glyphicon-pencil"></span>
+									</h:commandLink>
+								</h:column>
+								<h:column>
+								<f:facet name="header">PADRAO - EXCLUIR</f:facet>
+									<h:commandLink styleClass="btn btn-default" onclick="return confirm('Tem certeza?');"
+										action="#{usuarioMB.excluir(item.id)}">
+										<span class="glyphicon glyphicon-trash"></span>
+									</h:commandLink>
+								</h:column>
+							</h:dataTable>
+							</h:form>
+							</ui:insert>
+						
+	             	</div>
+	     		</div>
+					
+				</ui:insert>
+	        </div>
+	</div>
+</body>
+
+</html>

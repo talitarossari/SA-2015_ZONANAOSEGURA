@@ -17,27 +17,64 @@
 	height:100%;
 }
 
+.botaoLogos button{
+	margin-top: 3%;
+  border-color: #c6c6c6;
+  border-radius: 8px;
+  background-color: #c6c6c6;
+  color: rgb(114, 114, 114);
+}
+
 .sug{
 	position: absolute;
-	top: 0px;
+	bottom: 0px;
 	z-index: 100;
 	right: 0px;
 	width: auto;
   	height: 159px;
 }
+.sug2{
+	bottom: 0px;
+	z-index: 100;
+	right: 0px;
+	width: auto;
+  	height: 159px;
+  	position: fixed;
+  	padding: 0;
+}
 
-#sugestao {
+.fundoSug{
 	background-image: url("#{resource['/img/sbar.png']}") ;
 	background-size: 100% 100%;
 	width: 27px;
   	height: 159px;
+  	float:left;
   	cursor:pointer;
 }
 
+#sugestao {
+  	cursor:pointer;
+}
+
+.padding0{
+	padding:0px;
+}
+
+.fundoSugestao{
+	background-color: transparent;
+	max-height: 65px;
+	max-width: 100%;
+}
+
 #enviarSugestao{
+	background-image: url("#{resource['/img/fundoSugestao.png']}") ;
+	background-size: 100% 100%;
 	display:none;
-	width:30%;
+	width: 50%;
 	height:159px;
+	float:right;
+	border-radius: 10px;
+	position: fixed;
 	background-color: #fff;
 }
 

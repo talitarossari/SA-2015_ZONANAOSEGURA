@@ -21,7 +21,7 @@
 				<h:inputHidden value="#{tipocrimeMB.tipo.id}" />
 				<h:outputLabel value="Descrição" />
 				<h:inputText styleClass="form-control" value="#{tipocrimeMB.tipo.descricao}" />	
-				<h:link outcome="#" style="margin-top: 3%;" styleClass="btn btn-default" ><span class="glyphicon glyphicon-folder-open" ></span>  Procurar Icone </h:link>
+				<h:link outcome="#" style="margin-top: 3%;" styleClass="btn btn-default" value="{tipocrimeMB.tipo.icone}" ><span class="glyphicon glyphicon-folder-open" ></span>  Procurar Icone </h:link>
 				<div style="margin-top: 3%;">
 					<h:commandButton action="#{tipocrimeMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />
