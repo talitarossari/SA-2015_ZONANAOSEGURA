@@ -21,11 +21,13 @@ public class ObjetoMB  {
 	private List<Objeto> objetos;
 	private ObjetoDao objetoDao;
 	private Part icone;
+	private UploadImageUtil uploadImageUtil;
 	
 	@PostConstruct
 	public void initMB() {
 		this.objeto = new Objeto();
 		objetoDao = new ObjetoDao();
+		this.uploadImageUtil = new UploadImageUtil("iconesObjeto");
 	}
 	
 	
@@ -74,7 +76,7 @@ public class ObjetoMB  {
 	public String salvar(){
 		String nomeLogo;
 		try {
-			nomeLogo = UploadImageUtil.salvar(icone, objeto.getLogo());
+			nomeLogo = uploadImageUtil.salvar(icone, objeto.getLogo());
 			objeto.setLogo(nomeLogo);
 		} catch (UploadImageException e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
@@ -95,7 +97,7 @@ public class ObjetoMB  {
 		Long id = Long.valueOf(idParam);
 		
 		Objeto objetoExcluir = objetoDao.buscarPorId(id);
-		UploadImageUtil.excluir(objetoExcluir.getLogo());
+		uploadImageUtil.excluir(objetoExcluir.getLogo());
 		
 		objetoDao.excluir(id);
 		objetos = null;
@@ -110,7 +112,7 @@ public class ObjetoMB  {
 	
 
 	public String caminhoUpload(String imagem){
-		return UploadImageUtil.getCaminhoRelativo(imagem);
+		return uploadImageUtil.getCaminhoRelativo(imagem);
 	}
 	
 	

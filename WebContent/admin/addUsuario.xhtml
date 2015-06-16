@@ -24,7 +24,7 @@
 				<h:outputLabel value="Login" />
 				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.login}" />
 				<h:outputLabel value="Senha" />
-				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.senha}" readonly="false" />		
+				<h:inputSecret styleClass="form-control" value="#{usuarioMB.usuario.senha}" />		
 				<div style="margin-top: 3%;">
 					<h:commandButton action="#{usuarioMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />

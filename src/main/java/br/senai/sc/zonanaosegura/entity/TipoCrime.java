@@ -36,5 +36,12 @@ public class TipoCrime {
 	public void setDenuncias(List<Denuncia> denuncias) {
 		this.denuncias = denuncias;
 	}
+	public String getIcone() {
+		return icone;
+	}
+	public void setIcone(String icone) {
+		this.icone = icone;
+	}
 
+	
 }

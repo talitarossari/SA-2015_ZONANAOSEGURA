@@ -9,6 +9,10 @@ import br.senai.sc.zonanaosegura.entity.Usuario;
 
 public class UsuarioDao extends Dao {
 	public void inserir(Usuario usuario) {
+		if(usuario.getId()!=null && usuario.getSenha()==null || usuario.getSenha()=="" || usuario.getSenha().isEmpty()){
+			Usuario usu = buscarPorId(usuario.getId());		
+			usuario.setSenha(usu.getSenha());
+		}				
 			getEntityManager().merge(usuario);
 	}
 

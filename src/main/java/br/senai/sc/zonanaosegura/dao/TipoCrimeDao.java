@@ -9,10 +9,7 @@ import br.senai.sc.zonanaosegura.entity.TipoCrime;
 public class TipoCrimeDao extends Dao  {
 
 	public void inserir(TipoCrime crime) {
-		try {
-			getEntityManager().persist(crime);
-		} catch (Exception e) {
-		}
+			getEntityManager().merge(crime);
 	}
 
 	public void excluir(Long id) {
@@ -26,23 +23,14 @@ public class TipoCrimeDao extends Dao  {
 	}
 
 	public void atualizar(TipoCrime crime) {
-		try {
 			getEntityManager().merge(crime);
-		} catch (Exception e) {
-		}
-
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<TipoCrime> listar() {
-		try {
-			Query query = getEntityManager().createQuery("From TipoCrimeMB",
-					TipoCrime.class);
-			List<TipoCrime> crimes = (List<TipoCrime>) query;
-			return crimes;
-		} catch (Exception e) {
-		}
-		return null;
+		Query query = getEntityManager().createQuery("From TipoCrime",
+				TipoCrime.class);
+		return query.getResultList();
 	}
 
 }

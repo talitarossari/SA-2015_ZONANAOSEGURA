@@ -22,7 +22,8 @@
 				<h:outputLabel value="Descrição" />
 				<h:inputText styleClass="form-control" value="#{objetoMB.objeto.descricao}" />	
 				
-				<h:inputFile style=" margin-top:3%;" value="#{objetoMB.objeto.logo}"></h:inputFile>
+				<h:inputFile style=" margin-top:3%;" value="#{objetoMB.icone}"></h:inputFile>
+				<h:inputHidden value="#{objetoMB.objeto.logo}" />
 				<div style="margin-top: 3%;">
 					<h:commandButton action="#{objetoMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />
