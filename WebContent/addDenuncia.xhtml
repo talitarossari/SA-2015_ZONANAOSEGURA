@@ -6,38 +6,39 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:m="http://code.google.com/p/gmaps4jsf/">
-	
+
 <ui:composition template="/WEB-INF/templates/padraoDenuncia.xhtml">
 	<ui:define name="title">
 	    Fui Roubado
 	</ui:define>
-	
-		<ui:define name="content">
+
+	<ui:define name="content">
 		<div class="containt-fluid-fundo">
-		<div class="col-md-6">
-			<script type="text/javascript"
-			src="https://maps.googleapis.com/maps/api/js?sensor=true">
+			<div class="col-md-5" style="margin-top: 1%">
+				<script type="text/javascript"
+					src="https://maps.googleapis.com/maps/api/js?sensor=true">
     </script>
-		<h:form id="form">
-			<m:map width="400px" height="700px"
-				jsVariable="map1" zoom="17" address=" florianopolis, BR">
-				<m:marker address="Florianopolis, BR" jsVariable="marker1"
-					draggable="true">
-					<m:icon shadowImageURL="http://www.google.com/mapfiles/shadow50.png" imageURL="#{resource['/img/markkerstole.png']}"/>
-					<m:eventListener eventName="dragend"
-						jsFunction="marker1DragHandler" />
-				</m:marker>
-			</m:map>
-			
-			<h:inputHidden id="idLat" value="#{localMB.latitude}" />
-			<h:inputHidden id="idLon" value="#{localMB.longitude}" />
-			<h:commandButton value="Teste SALVAR"
-				action="#{localMB.save()}" />
-			<br />
-			<h:outputText
-				value="Cordenadas (lat, lng): (#{localMB.latitude}, #{localMB.longitude})" />
-			<br />
-			<script type="text/javascript">
+				<h:form id="form">
+					<m:map width="500px" height="650px" jsVariable="map1" zoom="17"
+						address=" florianopolis, BR">
+						<m:marker address="Florianopolis, BR" jsVariable="marker1"
+							draggable="true">
+							<m:icon
+								shadowImageURL="http://www.google.com/mapfiles/shadow50.png"
+								imageURL="#{resource['/img/markkerstole.png']}" />
+							<m:eventListener eventName="dragend"
+								jsFunction="marker1DragHandler" />
+						</m:marker>
+					</m:map>
+
+					<h:inputHidden id="idLat" value="#{localMB.latitude}" />
+					<h:inputHidden id="idLon" value="#{localMB.longitude}" />
+					<h:commandButton value="Teste SALVAR" action="#{localMB.save()}" />
+					<br />
+					<h:outputText
+						value="Cordenadas (lat, lng): (#{localMB.latitude}, #{localMB.longitude})" />
+					<br />
+					<script type="text/javascript">
                function marker1DragHandler(event) {
             	   document.getElementById('form:idLat').value = event.latLng.A;
             	   document.getElementById('form:idLon').value = event.latLng.F;
@@ -45,11 +46,44 @@
             	   alert("Você marcou o Local:" +  document.getElementById('form:idLon').value);
                }
             </script>
-           	
-            </h:form>
-            </div> 
-             </div>	          
-		</ui:define>
-	
+
+				</h:form>
+			</div>
+
+			<div class="col-md-7 fundoDenuncias" style="margin-top: 1%">
+				<h:outputLabel style="text-align: left; color: #fff;"
+					class="seguranca">Dados do Crime:</h:outputLabel>
+				<div class="col-md-12 " style="text-align: left">
+					<h:outputLabel>Endereço:</h:outputLabel>
+					<h:inputText styleClass="form-control" readonly="true" />
+				</div>
+				<div class="col-md-8">
+					<h:outputLabel>Tipo de Ocorrencia:</h:outputLabel>
+					<h:selectOneMenu styleClass="form-control">
+						<f:selectItem itemValue="1" itemLabel="Selecione uma Opção" />
+						<f:selectItem itemValue="2" itemLabel="Item 2" />
+					</h:selectOneMenu>
+				</div>
+				<div class="col-md-4">
+					<h:outputLabel>Realizou Boletim de Ocorrencia?</h:outputLabel>
+					<h:selectOneMenu styleClass="form-control">
+						<f:selectItem itemValue="1" itemLabel="Selecione uma Opção" />
+						<f:selectItem itemValue="2" itemLabel="Sim" />
+						<f:selectItem itemValue="2" itemLabel="Não" />
+					</h:selectOneMenu>
+				</div>
+				<div class="col-md-4">
+					<h:outputLabel>Data:</h:outputLabel>
+					<h:inputText styleClass="form-control" />
+				</div>
+				<div class="col-md-4">
+					<h:outputLabel>Horario:</h:outputLabel>
+					<h:inputText styleClass="form-control" />
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
 </ui:composition>
 </html>
+

@@ -12,6 +12,11 @@ body {
 .campo{
 	background-color: #CACACA;
 }
+.fundoDenuncias{
+	margin-top: 3%; 
+	background-image:url("#{resource['/img/divbg.png']}");
+	background-repeat: repeat;
+}
 
 .altura{
 	height:100%;
