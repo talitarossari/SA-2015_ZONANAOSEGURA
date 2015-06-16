@@ -8,47 +8,40 @@
 
 <ui:composition template="/WEB-INF/templates/padraoAdm.xhtml">
 	<ui:define name="title">
-	    Usuarios
+	    Locais
 	</ui:define>
-	<ui:define name="tituloPagina">Usuario</ui:define>
-	<ui:define name="adicionarObjeto">
-		<h:link outcome="addUsuario">
-			<span class="glyphicon glyphicon-plus "></span>
-			<span class="glyphicon glyphicon-user "></span> Adicionar Usuario </h:link>
-	</ui:define>
+	<ui:define name="tituloPagina">Local</ui:define>
+	<ui:define name="adicionarObjeto"> </ui:define>
 	<ui:define name="tabela">
-
-		<h:dataTable styleClass="table table-striped"
-			value="#{usuarioMB.usuarios}" var="item">
+		<h:dataTable styleClass="table table-striped"  value="#{localMB.locais}" var="item">
 			<h:column>
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{item.id}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">Login</f:facet>
-				<h:outputText value="#{item.login}" />
+				<f:facet name="header">CoordenadaX</f:facet>
+				<h:outputText value="#{item.coordenadaX}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">Nome</f:facet>
-				<h:outputText value="#{item.usuario}" />
+				<f:facet name="header">CoordenadaY</f:facet>
+				<h:outputText value="#{item.coordenadaY}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Editar</f:facet>
 				<h:commandLink styleClass="btn btn-default"
-					action="#{usuarioMB.editar(item.id)}">
+						action="#{localMB.editar(item.id)}">
 					<span class="glyphicon glyphicon-pencil"></span>
 				</h:commandLink>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Excluir</f:facet>
-				<h:commandLink styleClass="btn btn-default"
-					onclick="return confirm('Tem certeza?');"
-					action="#{usuarioMB.excluir(item.id)}">
-					<span class="glyphicon glyphicon-trash"></span>
-				</h:commandLink>
+					<h:commandLink styleClass="btn btn-default" onclick="return confirm('Tem certeza?');"
+						 action="#{localMB.excluir(item.id)}">
+						<span class="glyphicon glyphicon-trash"></span>
+					</h:commandLink>
 			</h:column>
 		</h:dataTable>
-
+	
 	</ui:define>
 </ui:composition>
 </html>
