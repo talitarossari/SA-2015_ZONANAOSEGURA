@@ -59,10 +59,12 @@
 				</div>
 				<div class="col-md-8">
 					<h:outputLabel>Tipo de Ocorrencia:</h:outputLabel>
-					<h:selectOneMenu styleClass="form-control">
-						<f:selectItem itemValue="1" itemLabel="Selecione uma Opção" />
-						<f:selectItem itemValue="2" itemLabel="Item 2" />
-					</h:selectOneMenu>
+					<h:selectOneMenu styleClass="form-control"
+						value="#{denunciaMB.denuncia.tipo}">
+						<f:selectItem itemLabel="Selecione uma Opção" />
+						<f:selectItems value="#{denunciaMB.tipos}" var="tipo"
+							itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+					</h:selectOneMenu>					
 				</div>
 				<div class="col-md-4">
 					<h:outputLabel>Realizou Boletim de Ocorrencia?</h:outputLabel>
@@ -81,11 +83,9 @@
 					<h:inputText styleClass="form-control" />
 				</div>
 				<div class="col-md-12">
-				<div class="col-md-3 boxObjeto" style="margin-top: 1%;">
-				<h:graphicImage class="img-responsive" library="img" name="youtubil.png" />
-				<h:selectBooleanCheckbox/>		
-				
-				</div>
+					<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}">
+						<h:selectBooleanCheckbox value="#{denunciaMB.objetos}"/>
+					</h:selectManyCheckbox>
 				</div>
 			</div>
 		</div>

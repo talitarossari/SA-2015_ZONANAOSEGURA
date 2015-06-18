@@ -6,13 +6,19 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import br.senai.sc.zonanaosegura.dao.DenunciaDao;
+import br.senai.sc.zonanaosegura.dao.ObjetoDao;
+import br.senai.sc.zonanaosegura.dao.TipoCrimeDao;
 import br.senai.sc.zonanaosegura.entity.Denuncia;
+import br.senai.sc.zonanaosegura.entity.Objeto;
+import br.senai.sc.zonanaosegura.entity.TipoCrime;
 @ManagedBean
 public class DenunciaMB {
 	
 	private Denuncia denuncia;
 	private List<Denuncia> denuncias;
 	private DenunciaDao denunciaDao;
+	private List<TipoCrime> tipos;
+	private List<Objeto> objetos;
 	
 	@PostConstruct
 	public void initMB() {
@@ -53,6 +59,30 @@ public class DenunciaMB {
 		this.denunciaDao = denunciaDao;
 	}
 
+	public List<TipoCrime> getTipos() {
+		if(tipos == null){
+			TipoCrimeDao tipoCrimeDao = new TipoCrimeDao();
+			tipos = tipoCrimeDao.listar();
+		}
+		return tipos;
+	}
+
+	public void setTipos(List<TipoCrime> tipos) {
+		this.tipos = tipos;
+	}
+	
+	public List<Objeto> getObjetos() {
+		if(objetos == null){
+			ObjetoDao objetoDao = new ObjetoDao();
+			objetos = objetoDao.listar();
+		}
+		return objetos;
+	}
+
+	public void setObjetos(List<Objeto> objetos) {
+		this.objetos = objetos;
+	}
+	
 	public String salvar(){
 		denunciaDao.inserir(denuncia);
 		return "listardenuncias?faces-redirect=true";
