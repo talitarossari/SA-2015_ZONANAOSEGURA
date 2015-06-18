@@ -12,6 +12,10 @@ body {
 .campo{
 	background-color: #CACACA;
 }
+.boxObjeto{
+	background-image:url("#{resource['/img/divObj.png']}");
+	background-repeat: repeat;	
+}
 .fundoDenuncias{
 	margin-top: 3%; 
 	background-image:url("#{resource['/img/divbg.png']}");
