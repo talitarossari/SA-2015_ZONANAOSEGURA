@@ -1,5 +1,6 @@
 package br.senai.sc.zonanaosegura.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,10 +11,10 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column(unique = true)
 	private String login;
 	private String usuario;
-	private String senha;
-		
+	private String senha;		
 	public Usuario(){
 		
 	}

@@ -31,7 +31,7 @@ public class UploadImageUtil {
 		}
 		
 		if(!TIPOS_PERMITIDOS.containsKey(imagem.getContentType())){
-			throw new UploadImageException("O tipo de arquivo não permitido.");
+			throw new UploadImageException("O tipo de arquivo nao permitido.");
 		}
 		
 		String nomeImagem = gerarNomeImagem(imagem);

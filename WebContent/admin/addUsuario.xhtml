@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -12,26 +12,44 @@
 	</ui:define>
 	<ui:define name="content">
 		<div class="col-md-6 col-md-offset-3">
+			<h:message globalOnly="true" />
 			<h:form>
 				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
 					<h:outputLabel value="ID" />
-					<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.id}"
-						readonly="true" />
+					<h:inputText styleClass="form-control"
+						value="#{usuarioMB.usuario.id}" readonly="true" />
 				</h:panelGroup>
 				<h:inputHidden value="#{usuarioMB.usuario.id}" />
+
 				<h:outputLabel value="Nome" />
-				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.usuario}" />
+				<h:message for="idNome" style="color:red;" />
+				<h:inputText styleClass="form-control"
+					value="#{usuarioMB.usuario.usuario}" required="
+					true"
+					requiredMessage="Preenchimento obrigatório" />
+
 				<h:outputLabel value="Login" />
-				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.login}" />
+				<h:message for="idLogin" style="color:red;" />
+				<h:inputText id="idLogin" styleClass="form-control"
+					value="#{usuarioMB.usuario.login}" required="
+					true"
+					requiredMessage="Preenchimento obrigatório" />
+
 				<h:outputLabel value="Senha" />
-				<h:inputSecret styleClass="form-control" value="#{usuarioMB.usuario.senha}" />		
+				<h:message for="idSenha" style="color:red;" />
+				<h:inputSecret id="idSenha" styleClass="form-control"
+					value="#{usuarioMB.usuario.senha}" required="
+					true"
+					requiredMessage="Preenchimento obrigatório" />
+					
+					
 				<div style="margin-top: 3%;">
 					<h:commandButton action="#{usuarioMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />
 					<button class="btn btn-default" type="reset">Restaurar</button>
 				</div>
-				</h:form>
-			</div>	
+			</h:form>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>
