@@ -22,7 +22,8 @@
 					<m:map width="500px" height="650px" jsVariable="map1" zoom="17"
 						address=" florianopolis, BR">
 						<m:marker address="Florianopolis, BR" jsVariable="marker1"
-							draggable="true">
+							draggable="true" submitOnValueChange="true"
+							valueChangeListener="#{localMB.processoMarker}">
 							<m:icon
 								shadowImageURL="http://www.google.com/mapfiles/shadow50.png"
 								imageURL="#{resource['/img/markkerstole.png']}" />
@@ -30,6 +31,11 @@
 								jsFunction="marker1DragHandler" />
 						</m:marker>
 					</m:map>
+					<h:outputText value="Marker A details:"
+						rendered="#{denunciaMB.denuncia.local ne null}" escape="false" />
+					<h:outputText value="#{denunciaMB.denuncia.local}"
+						rendered="#{denunciaMB.denuncia.local ne null}" escape="false" />
+
 
 					<h:inputHidden id="idLat" value="#{localMB.latitude}" />
 					<h:inputHidden id="idLon" value="#{localMB.longitude}" />
@@ -41,8 +47,7 @@
 					<script type="text/javascript">
                function marker1DragHandler(event) {
             	   document.getElementById('form:idLat').value = event.latLng.A;
-            	   document.getElementById('form:idLon').value = event.latLng.F;
-                   
+               	   document.getElementById('form:idLon').value = event.latLng.F;                   
             	   alert("Você marcou o Local:" +  document.getElementById('form:idLon').value);
                }
             </script>
@@ -55,16 +60,26 @@
 					class="seguranca">Dados do Crime:</h:outputLabel>
 				<div class="col-md-12 " style="text-align: left">
 					<h:outputLabel>Endereço:</h:outputLabel>
-					<h:inputText styleClass="form-control" readonly="true" />
+					<h:outputText value="#{localMB.localInforma}"
+						rendered="#{localMB.localInforma ne null}" escape="false" />
 				</div>
 				<div class="col-md-8">
 					<h:outputLabel>Tipo de Ocorrencia:</h:outputLabel>
-					<h:selectOneMenu styleClass="form-control"
-						value="#{denunciaMB.denuncia.tipo}">
+					<h:selectOneMenu styleClass="form-control">
+						<!-- 						value="#{denunciaMB.denuncia.tipo}> -->
 						<f:selectItem itemLabel="Selecione uma Opção" />
-						<f:selectItems value="#{denunciaMB.tipos}" var="tipo"
-							itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
-					</h:selectOneMenu>					
+						<f:selectItem itemLabel="Furto" />
+						<f:selectItem itemLabel="Roubo" />
+						<f:selectItem itemLabel="Arrombamento Domiciliar" />
+						<f:selectItem itemLabel="Roubo de Carro" />
+						<f:selectItem itemLabel="Assalto a Grupo" />
+						<f:selectItem itemLabel="Sequestro Relampago" />
+						<f:selectItem itemLabel="Arrombamento de Loja Comercial" />
+						<f:selectItem itemLabel="Arrastao" />
+						<f:selectItem itemLabel="Tentativa de Assalto" />
+						<!-- 						<f:selectItems value="#{denunciaMB.tipos}" var="tipo" -->
+						<!-- 							itemLabel="#{tipo.descricao}" itemValue="#{tipo}" /> -->
+					</h:selectOneMenu>
 				</div>
 				<div class="col-md-4">
 					<h:outputLabel>Realizou Boletim de Ocorrencia?</h:outputLabel>
@@ -83,9 +98,9 @@
 					<h:inputText styleClass="form-control" />
 				</div>
 				<div class="col-md-12">
-					<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}">
-						<h:selectBooleanCheckbox value="#{denunciaMB.objetos}"/>
-					</h:selectManyCheckbox>
+					<!-- 					<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}"> -->
+					<!-- 						<h:selectBooleanCheckbox value="#{denunciaMB.objetos}"/> -->
+					<!-- 					</h:selectManyCheckbox> -->
 				</div>
 			</div>
 		</div>
