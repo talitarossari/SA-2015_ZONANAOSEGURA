@@ -120,6 +120,8 @@ body{
 .botaoLogin{
 	background-color: rgb(160, 2, 2);
 	margin-top:5%;
+	width: 100%;
+  	color: white;
 }
 
 .texto{
