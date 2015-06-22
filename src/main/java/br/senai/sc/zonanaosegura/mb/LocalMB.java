@@ -18,7 +18,7 @@ import com.googlecode.gmaps4jsf.services.data.PlaceMark;
 public class LocalMB {
 	private static final String NOT_AVAILABLE = "Not available";
 	private String latitude;
-	private String longitude;
+	private String longitude;  
 	private Local local;
 	private List<Local> locais;
 	private LocalDao localDao;
