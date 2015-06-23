@@ -13,31 +13,32 @@
 	<ui:define name="tituloPagina">Sugestao</ui:define>
 	<ui:define name="adicionarObjeto"><h:link outcome="addSugestao"><span class="glyphicon glyphicon-plus "></span><span class="glyphicon glyphicon-comment"></span> Adicionar Sugestao </h:link></ui:define>
 	<ui:define name="tabela">
-		<h:dataTable styleClass="table table-striped"  value="#{sugestaoMB.sugestoes}" var="item">
-			<h:column>
-				<f:facet name="header">ID</f:facet>
-				<h:outputText value="#{item.id}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Sugestao</f:facet>
-				<h:outputText value="#{item.sugestao}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Editar</f:facet>
-				<h:commandLink styleClass="btn btn-default"
-						action="#{sugestaoMB.editar(item.id)}">
-					<span class="glyphicon glyphicon-pencil"></span>
-				</h:commandLink>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Excluir</f:facet>
-					<h:commandLink styleClass="btn btn-default" onclick="return confirm('Tem certeza?');"
-						 action="#{sugestaoMB.excluir(item.id)}">
-						<span class="glyphicon glyphicon-trash"></span>
+		<h:form enctype="multipart/form-data">
+			<h:dataTable styleClass="table table-striped"  value="#{sugestaoMB.sugestoes}" var="item">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{item.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Sugestao</f:facet>
+					<h:outputText value="#{item.sugestao}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Editar</f:facet>
+					<h:commandLink styleClass="btn btn-default"
+							action="#{sugestaoMB.editar(item.id)}">
+						<span class="glyphicon glyphicon-pencil"></span>
 					</h:commandLink>
-			</h:column>
-		</h:dataTable>
-	
+				</h:column>
+				<h:column>
+					<f:facet name="header">Excluir</f:facet>
+						<h:commandLink styleClass="btn btn-default" onclick="return confirm('Tem certeza?');"
+							 action="#{sugestaoMB.excluir(item.id)}">
+							<span class="glyphicon glyphicon-trash"></span>
+						</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

@@ -15,72 +15,86 @@ import br.senai.sc.zonanaosegura.util.UploadImageException;
 import br.senai.sc.zonanaosegura.util.UploadImageUtil;
 
 @ManagedBean
-public class TipoCrimeMB  {
-	
+public class TipoCrimeMB {
+
 	private TipoCrime tipo;
 	private List<TipoCrime> tipos;
 	private TipoCrimeDao tipoDao;
 	private Part icone;
 	private UploadImageUtil uploadImageUtil;
-	
+
 	@PostConstruct
 	public void initMB() {
 		this.tipo = new TipoCrime();
 		tipoDao = new TipoCrimeDao();
 		this.uploadImageUtil = new UploadImageUtil("iconesTipo");
-	}	
-	
-	public TipoCrime getTipoCrime() {
+	}
+
+	public TipoCrime getTipo() {
 		return tipo;
 	}
 
-
-	public void setTipoCrime(TipoCrime local) {
-		this.tipo = local;
+	public void setTipo(TipoCrime tipo) {
+		this.tipo = tipo;
 	}
 
-
-	public List<TipoCrime> getTipoCrimes() {
-		if(tipos == null){
+	public List<TipoCrime> getTipos() {
+		if (tipos == null) {
 			tipos = tipoDao.listar();
 		}
 		return tipos;
 	}
 
-	public void setTipoCrimes(List<TipoCrime> tipos) {
+	public void setTipos(List<TipoCrime> tipos) {
 		this.tipos = tipos;
 	}
 
-
-	public TipoCrimeDao getTipoCrimeDao() {
+	public TipoCrimeDao getTipoDao() {
 		return tipoDao;
 	}
 
-
-	public void setTipoCrimeDao(TipoCrimeDao tipoCrimeDao) {
-		this.tipoDao = tipoCrimeDao;
+	public void setTipoDao(TipoCrimeDao tipoDao) {
+		this.tipoDao = tipoDao;
 	}
 
-	public String salvar(){
+	public Part getIcone() {
+		return icone;
+	}
+
+	public void setIcone(Part icone) {
+		this.icone = icone;
+	}
+
+	public UploadImageUtil getUploadImageUtil() {
+		return uploadImageUtil;
+	}
+
+	public void setUploadImageUtil(UploadImageUtil uploadImageUtil) {
+		this.uploadImageUtil = uploadImageUtil;
+	}
+
+	public String salvar() {
 		String nomeLogo;
 		try {
 			nomeLogo = uploadImageUtil.salvar(icone, tipo.getIcone());
 			tipo.setIcone(nomeLogo);
 		} catch (UploadImageException e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(e.getMessage()));
 			e.printStackTrace();
 			return "";
 		} catch (IOException e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Nao foi possivel salvar a imagem."));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Nao foi possivel salvar a imagem."));
 			e.printStackTrace();
 			return "";
 		}
-		
+
 		tipoDao.inserir(tipo);
 		return "listarusuarios?faces-redirect=true";
 	}
-	
-	public String excluir(String idParam){
+
+	public String excluir(String idParam) {
 		Long id = Long.valueOf(idParam);
 		TipoCrime tipoExcluir = tipoDao.buscarPorId(id);
 		uploadImageUtil.excluir(tipoExcluir.getIcone());
@@ -88,13 +102,13 @@ public class TipoCrimeMB  {
 		return "";
 	}
 
-	public String editar(String idParam){
+	public String editar(String idParam) {
 		Long id = Long.valueOf(idParam);
 		tipo = tipoDao.buscarPorId(id);
 		return "cadastrousuario";
 	}
-	
-	public String caminhoUpload(String imagem){
+
+	public String caminhoUpload(String imagem) {
 		return uploadImageUtil.getCaminhoRelativo(imagem);
 	}
 

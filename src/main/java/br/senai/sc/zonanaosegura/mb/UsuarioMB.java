@@ -51,27 +51,15 @@ public class UsuarioMB {
 	}
 
 	public String salvar() {
-		if (usuario.getId() != null && usuario.getSenha() == null
-				|| usuario.getSenha() == "" || usuario.getSenha().isEmpty()) {
+		if (usuario.getId() != null || usuario.getId() != 0 && usuario.getSenha() == null || usuario.getSenha() == "" || usuario.getSenha().isEmpty()) {
 			Usuario usu = usuarioDao.buscarPorId(usuario.getId());
 			usuario.setSenha(usu.getSenha());
-		} else if ((usuario.getId() == null)
-				&& (usuario.getSenha() == null || usuario.getSenha() == ""
-						|| usuario.getSenha().isEmpty()
-						|| usuario.getLogin() == null
-						|| usuario.getLogin() == ""
-						|| usuario.getLogin().isEmpty()
-						|| usuario.getUsuario() == null
-						|| usuario.getUsuario() == "" || usuario.getUsuario()
-						.isEmpty())) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Preencha todos os campos!"));
-
-		} else if (usuarioDao.buscaPorLogin(usuario.getLogin())!=null){
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Esse usuario ja existe!"));
+		} else if (existe(usuario.getUsuario())){
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Este login já existe!"));
 		}
-
 		usuarioDao.inserir(usuario);
-		return "usuario?faces-redirect=true";
+		return "usuario";
+		
 	}
 
 	public String excluir(String idParam) {
@@ -84,6 +72,15 @@ public class UsuarioMB {
 		Long id = Long.valueOf(idParam);
 		usuario = usuarioDao.buscarPorId(id);
 		return "addusuario";
+	}
+	
+	public boolean existe(String login){
+		 Usuario usu = usuarioDao.buscaPorLogin(login);
+		 if(usu!=null){
+			 return false;
+		 }else {
+			 return true;
+		 }
 	}
 
 }

@@ -13,7 +13,7 @@
 	<ui:define name="content">
 		<div class="col-md-6 col-md-offset-3">
 			<h:message globalOnly="true" />
-			<h:form>
+			<h:form enctype="multipart/form-data">
 				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
 					<h:outputLabel value="ID" />
 					<h:inputText styleClass="form-control"
@@ -23,7 +23,7 @@
 
 				<h:outputLabel value="Nome" />
 				<h:message for="idNome" style="color:red;" />
-				<h:inputText styleClass="form-control"
+				<h:inputText id="idNome" styleClass="form-control"
 					value="#{usuarioMB.usuario.usuario}" required="
 					true"
 					requiredMessage="Preenchimento obrigatório" />

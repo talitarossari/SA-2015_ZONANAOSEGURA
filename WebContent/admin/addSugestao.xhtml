@@ -10,9 +10,9 @@
 	<ui:define name="title">
 		Sugestão
 	</ui:define>
-	<ui:define name="content">
+	<ui:define name="tab">
 		<div class="col-md-6 col-md-offset-3">
-			<h:form>
+			<h:form enctype="multipart/form-data">
 				<h:panelGroup rendered="#{not empty sugestaoMB.sugestao.id}">
 					<h:outputLabel value="ID" />
 					<h:inputText styleClass="form-control" value="#{sugestaoMB.sugestao.id}"

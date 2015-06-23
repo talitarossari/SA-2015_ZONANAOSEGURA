@@ -9,9 +9,7 @@ import br.senai.sc.zonanaosegura.entity.Usuario;
 
 public class UsuarioDao extends Dao {
 	public void inserir(Usuario usuario) {
-
-
-			getEntityManager().merge(usuario);
+		getEntityManager().merge(usuario);
 	}
 
 	public void excluir(Long id) {
@@ -32,10 +30,16 @@ public class UsuarioDao extends Dao {
 	public Usuario buscarPorId(Long id) {
 		return getEntityManager().find(Usuario.class, id);
 	}
+	
 	public Usuario buscaPorLogin(String nome) {
-		Query query = getEntityManager().createQuery("From Usuario u Where u.login = :login", Usuario.class);
-		query.setParameter("login", nome);
-		return (Usuario) query.getSingleResult();
+		Query query = getEntityManager().createQuery("From Usuario Where login = :nome", Usuario.class);
+		query.setParameter("nome", nome);
+		if(query.getSingleResult()!=null){
+			return (Usuario) query.getSingleResult();
+		} else{
+			return null;
+		}
+	
 	}
 	
 }

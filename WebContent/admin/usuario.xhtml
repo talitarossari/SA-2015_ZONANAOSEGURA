@@ -5,50 +5,54 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-
-<ui:composition template="/WEB-INF/templates/padraoAdm.xhtml">
-	<ui:define name="title">
-	    Usuarios
-	</ui:define>
-	<ui:define name="tituloPagina">Usuario</ui:define>
-	<ui:define name="adicionarObjeto">
-		<h:link outcome="addUsuario">
-			<span class="glyphicon glyphicon-plus "></span>
-			<span class="glyphicon glyphicon-user "></span> Adicionar Usuario </h:link>
-	</ui:define>
-	<ui:define name="tabela">
-
-		<h:dataTable styleClass="table table-striped"
-			value="#{usuarioMB.usuarios}" var="item">
-			<h:column>
-				<f:facet name="header">ID</f:facet>
-				<h:outputText value="#{item.id}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Login</f:facet>
-				<h:outputText value="#{item.login}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Nome</f:facet>
-				<h:outputText value="#{item.usuario}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Editar</f:facet>
-				<h:commandLink styleClass="btn btn-default"
-					action="#{usuarioMB.editar(item.id)}">
-					<span class="glyphicon glyphicon-pencil"></span>
-				</h:commandLink>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Excluir</f:facet>
-				<h:commandLink styleClass="btn btn-default"
-					onclick="return confirm('Tem certeza?');"
-					action="#{usuarioMB.excluir(item.id)}">
-					<span class="glyphicon glyphicon-trash"></span>
-				</h:commandLink>
-			</h:column>
-		</h:dataTable>
-
-	</ui:define>
-</ui:composition>
+	
+	<ui:composition template="/WEB-INF/templates/padraoAdm.xhtml">
+		<ui:define name="title">
+		    Usuarios
+		</ui:define>
+		<ui:define name="tituloPagina">Usuario</ui:define>
+		<ui:define name="adicionarObjeto">
+			<h:link outcome="addUsuario">
+				<span class="glyphicon glyphicon-plus "></span>
+				<span class="glyphicon glyphicon-user "></span> Adicionar Usuario </h:link>
+		</ui:define>
+		<ui:define name="tabela">
+			<h:form enctype="multipart/form-data">
+				<h:dataTable styleClass="table table-striped"
+					value="#{usuarioMB.usuarios}" var="item">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{item.id}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Login</f:facet>
+						<h:outputText value="#{item.login}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputText value="#{item.usuario}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Senha</f:facet>
+						<h:outputText value="#{item.senha}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Editar</f:facet>
+						<h:commandLink styleClass="btn btn-default"
+							action="#{usuarioMB.editar(item.id)}">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</h:commandLink>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Excluir</f:facet>
+						<h:commandLink styleClass="btn btn-default"
+							onclick="return confirm('Tem certeza?');"
+							action="#{usuarioMB.excluir(item.id)}">
+							<span class="glyphicon glyphicon-trash"></span>
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </html>

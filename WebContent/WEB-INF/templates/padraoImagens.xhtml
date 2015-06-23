@@ -132,28 +132,6 @@
 	                    <div class="col-lg-12">
 	                   
 		                  <ui:insert name="tabela">  
-		                   <h:form enctype="multipart/form-data">
-		                  	<h:dataTable styleClass="table table-striped"  value="#{Padrao}" var="item">
-			                    <h:column>
-									<f:facet name="header">PADRAO</f:facet>
-									<h:outputText value="#{item.id}" />
-								</h:column>
-								<h:column>
-								<f:facet name="header">PADRAO - EDITAR</f:facet>
-									<h:commandLink styleClass="btn btn-default"
-										action="#{usuarioMB.editar(item.id)}">
-										<span class="glyphicon glyphicon-pencil"></span>
-									</h:commandLink>
-								</h:column>
-								<h:column>
-								<f:facet name="header">PADRAO - EXCLUIR</f:facet>
-									<h:commandLink styleClass="btn btn-default" onclick="return confirm('Tem certeza?');"
-										action="#{usuarioMB.excluir(item.id)}">
-										<span class="glyphicon glyphicon-trash"></span>
-									</h:commandLink>
-								</h:column>
-							</h:dataTable>
-							</h:form>
 							</ui:insert>
 						
 	             	</div>

@@ -15,7 +15,7 @@
 			<h:graphicImage class="img-responsive" library="img" name="login.png" />
 		</div>
 		<div class="col-md-6 col-xs-6">
-			<h:form>
+			<h:form enctype="multipart/form-data">
 				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
 					<h:outputLabel value="ID" />
 					<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.id}"

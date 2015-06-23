@@ -6,26 +6,26 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="/WEB-INF/templates/padraoImagens.xhtml">
+<ui:composition template="/WEB-INF/templates/padraoAdm.xhtml">
 	<ui:define name="title">
 		Tipo de Crime
 	</ui:define>
 	<ui:define name="content">
 		<div class="col-md-6 col-md-offset-3">
 			<h:form enctype="multipart/form-data">
-				<h:panelGroup rendered="#{not empty tipocrimeMB.tipo.id}">
+				<h:panelGroup rendered="#{tipoCrimeMB.tipo.id}">
 					<h:outputLabel value="ID" />
 					<h:inputText styleClass="form-control"
-						value="#{tipocrimeMB.tipo.id}" readonly="true" />
+						value="#{tipoCrimeMB.tipo.id}" readonly="true" />
 				</h:panelGroup>
-				<h:inputHidden value="#{tipocrimeMB.tipo.id}" />				
+				<h:inputHidden value="#{tipoCrimeMB.tipo.id}" />				
 				<h:outputLabel value="Descrição" />
 				<h:inputText styleClass="form-control"
-					value="#{tipocrimeMB.tipo.descricao}" />
-				<h:inputFile style=" margin-top:3%;" value="#{tipocrimeMB.icone}"></h:inputFile>
-				<h:inputHidden value="#{tipocrimeMB.tipo.icone}" />
+					value="#{tipoCrimeMB.tipo.descricao}" />
+				<h:inputFile style=" margin-top:3%;" value="#{tipoCrimeMB.icone}"></h:inputFile>
+				<h:inputHidden value="#{tipoCrimeMB.tipo.icone}" />
 				<div style="margin-top: 3%;">
-					<h:commandButton action="#{tipocrimeMB.salvar()}" value="Salvar"
+					<h:commandButton action="#{tipoCrimeMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />
 					<button class="btn btn-default" type="reset">Restaurar</button>
 				</div>
