@@ -8,6 +8,11 @@ body {
 	background-size: 100% 100%;
 	height: 100%;
 }
+.mapa{
+	height: 70%;
+	margin: 0;
+	padding: 0;	
+}
 
 .campo{
 	background-color: #CACACA;

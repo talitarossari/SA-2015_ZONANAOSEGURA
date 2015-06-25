@@ -13,44 +13,81 @@
 	</ui:define>
 
 	<ui:define name="content">
-		<div class="containt-fluid-fundo">
-			<div class="col-md-5" style="margin-top: 1%">
+		<div class="containt-fluid-fundo" style="height: 100%">
+			<div class="col-md-5" style="height: 100%">
 				<script type="text/javascript"
-					src="https://maps.googleapis.com/maps/api/js?sensor=true">
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
+    			</script>
+		<script>
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see a blank space instead of the map, this
+// is probably because you have denied permission for location sharing.
+
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 6
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+  geocoder = new google.maps.Geocoder();
+ 
+
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+      
+      var marker = new google.maps.Marker({
+          animation: google.maps.Animation.DROP,
+          draggable:true,
+          position: pos,
+          map: map,
+      });
+      
+
+      map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
+
+
+
+
+				<div id="map-canvas"
+					style="margin-top: 1%; height: 90%; width: 90%;"></div>
 				<h:form id="form">
-					<m:map width="500px" height="650px" jsVariable="map1" zoom="17"
-						address=" florianopolis, BR">
-						<m:marker address="Florianopolis, BR" jsVariable="marker1"
-							draggable="true" submitOnValueChange="true"
-							valueChangeListener="#{localMB.processoMarker}">
-							<m:icon
-								shadowImageURL="http://www.google.com/mapfiles/shadow50.png"
-								imageURL="#{resource['/img/markkerstole.png']}" />
-							<m:eventListener eventName="dragend"
-								jsFunction="marker1DragHandler" />
-						</m:marker>
-					</m:map>
-					<h:outputText value="Marker A details:"
-						rendered="#{denunciaMB.denuncia.local ne null}" escape="false" />
-					<h:outputText value="#{denunciaMB.denuncia.local}"
-						rendered="#{denunciaMB.denuncia.local ne null}" escape="false" />
 
 
-					<h:inputHidden id="idLat" value="#{localMB.latitude}" />
-					<h:inputHidden id="idLon" value="#{localMB.longitude}" />
-					<h:commandButton value="Teste SALVAR" action="#{localMB.save()}" />
-					<br />
-					<h:outputText
-						value="Cordenadas (lat, lng): (#{localMB.latitude}, #{localMB.longitude})" />
-					<br />
-					<script type="text/javascript">
-               function marker1DragHandler(event) {
-            	   document.getElementById('form:idLat').value = event.latLng.A;
-               	   document.getElementById('form:idLon').value = event.latLng.F;                   
-            	   alert("Você marcou o Local:" +  document.getElementById('form:idLon').value);
-               }
-            </script>
 
 				</h:form>
 			</div>
@@ -60,8 +97,7 @@
 					class="seguranca">Dados do Crime:</h:outputLabel>
 				<div class="col-md-12 " style="text-align: left">
 					<h:outputLabel>Endereço:</h:outputLabel>
-					<h:outputText value="#{localMB.localInforma}"
-						rendered="#{localMB.localInforma ne null}" escape="false" />
+					<h:outputText />
 				</div>
 				<div class="col-md-8">
 					<h:outputLabel>Tipo de Ocorrencia:</h:outputLabel>
@@ -96,7 +132,7 @@
 				<div class="col-md-4">
 					<h:outputLabel>Horario:</h:outputLabel>
 					<h:inputText styleClass="form-control" />
-				</div>  
+				</div>
 				<div class="col-md-12">
 					<!-- 					<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}"> -->
 					<!-- 						<h:selectBooleanCheckbox value="#{denunciaMB.objetos}"/> -->
@@ -104,6 +140,7 @@
 				</div>
 			</div>
 		</div>
+
 	</ui:define>
 
 </ui:composition>
