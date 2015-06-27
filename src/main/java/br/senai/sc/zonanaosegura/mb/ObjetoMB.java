@@ -27,7 +27,7 @@ public class ObjetoMB  {
 	public void initMB() {
 		this.objeto = new Objeto();
 		objetoDao = new ObjetoDao();
-		this.uploadImageUtil = new UploadImageUtil("iconesObjeto");
+		this.uploadImageUtil = new UploadImageUtil("iconesObjeto/");
 	}
 	
 	
@@ -50,7 +50,6 @@ public class ObjetoMB  {
 
 
 	public void setObjetos(List<Objeto> objetos) {
-
 		this.objetos = objetos;
 	}
 
@@ -113,8 +112,5 @@ public class ObjetoMB  {
 
 	public String caminhoUpload(String imagem){
 		return uploadImageUtil.getCaminhoRelativo(imagem);
-	}
-	
-	
-	
+	}	
 }

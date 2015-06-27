@@ -13,6 +13,16 @@ body {
 	margin: 0;
 	padding: 0;	
 }
+#map-canvas{
+	height: 90%; 
+	width: 90%; 
+	margin-top:1%;
+}
+
+#endereco{
+  cursor:default;
+  pointer-events: none;
+}
 
 .campo{
 	background-color: #CACACA;
@@ -23,6 +33,7 @@ body {
 }
 .fundoDenuncias{
 	margin-top: 3%; 
+	padding: 15px;
 	background-image:url("#{resource['/img/divbg.png']}");
 	background-repeat: repeat;
 }

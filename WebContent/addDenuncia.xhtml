@@ -4,142 +4,160 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:m="http://code.google.com/p/gmaps4jsf/">
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="/WEB-INF/templates/padraoDenuncia.xhtml">
 	<ui:define name="title">
 	    Fui Roubado
 	</ui:define>
-
 	<ui:define name="content">
-		<div class="containt-fluid-fundo" style="height: 100%">
-			<div class="col-md-5" style="height: 100%">
-				<script type="text/javascript"
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
-    			</script>
-		<script>
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see a blank space instead of the map, this
-// is probably because you have denied permission for location sharing.
-
-var map;
-
-function initialize() {
-  var mapOptions = {
-    zoom: 6
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-  geocoder = new google.maps.Geocoder();
- 
-
-  // Try HTML5 geolocation
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-
-      
-      var marker = new google.maps.Marker({
-          animation: google.maps.Animation.DROP,
-          draggable:true,
-          position: pos,
-          map: map,
-      });
-      
-
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
-}
-
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
-
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(60, 105),
-    content: content
-  };
-
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
-
-
-
-
-				<div id="map-canvas"
-					style="margin-top: 1%; height: 90%; width: 90%;"></div>
-				<h:form id="form">
-
-
-
-				</h:form>
-			</div>
-
-			<div class="col-md-7 fundoDenuncias" style="margin-top: 1%">
-				<h:outputLabel style="text-align: left; color: #fff;"
-					class="seguranca">Dados do Crime:</h:outputLabel>
-				<div class="col-md-12 " style="text-align: left">
-					<h:outputLabel>Endereço:</h:outputLabel>
-					<h:outputText />
+		<div class="container-fluid fundo " style="height: 100%">
+				<div class="col-md-5" style="height: 100%">
+					<script type="text/javascript"
+						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
+	    			</script>
+					<script>
+						var geocoder;
+						var map;
+						var infowindow = new google.maps.InfoWindow();
+						var marker;
+						
+						  geocoder = new google.maps.Geocoder();
+						  
+						function initialize() {
+						  var mapOptions = {
+						    zoom: 15,
+							disableDefaultUI: true,
+						  };
+						  map = new google.maps.Map(document.getElementById('map-canvas'),
+						      mapOptions);
+							  
+						  // Try HTML5 geolocation
+						  if(navigator.geolocation) {
+						    navigator.geolocation.getCurrentPosition(function(position) {
+						      var pos = new google.maps.LatLng(position.coords.latitude,
+						                                       position.coords.longitude);
+						
+								document.getElementById("latitude").value = position.coords.latitude;
+								document.getElementById("longitude").value = position.coords.longitude; 
+								codeLatLng();
+						      marker = new google.maps.Marker({
+						        map: map,
+						        position: pos,
+								draggable: true,
+						      });
+						
+								google.maps.event.addListener(marker, 'dragend', function(evt){
+								document.getElementById("latitude").value = evt.latLng.lat();
+								document.getElementById("longitude").value =evt.latLng.lng() ; 
+								codeLatLng();
+							});
+								
+						      map.setCenter(pos);
+						    }, function() {
+						      handleNoGeolocation(true);
+						    });
+						  } else {
+						    // Browser doesn't support Geolocation
+						    handleNoGeolocation(false);
+						  }
+						}
+						
+						function handleNoGeolocation(errorFlag) {
+						  if (errorFlag) {
+						    var content = 'Você foi redimencionado ao Rio de Janeiro!';
+						  } else {
+						    var content = 'Error: Your browser doesn\'t support geolocation.';
+						  }
+						 posicao = new google.maps.LatLng(-22.9035, -43.2096);
+						  var options = {
+						    map: map,
+						    position: new google.maps.LatLng(-22.9035, -43.2096),
+						  };
+							marker = new google.maps.Marker({
+						        map: map,
+						        position: posicao,
+								draggable: true,
+						      });
+						  map.setCenter(options.position);
+						}
+						
+						
+						function codeLatLng() {
+						  var lat = document.getElementById('latitude').value;
+						  var lng = document.getElementById('longitude').value;
+						  var latlng = new google.maps.LatLng(lat, lng);
+						  geocoder.geocode({'latLng': latlng}, function(results, status) {
+						    if (status == google.maps.GeocoderStatus.OK) {
+						      if (results[1]) {
+								document.getElementById("endereco").value = results[0].formatted_address;
+						      } else {
+						        alert('No results found');
+						      }
+						    } else {
+						      alert('Geocoder failed due to: ' + status);
+						    }
+						  });
+						}
+						google.maps.event.addDomListener(window, 'load', initialize);
+				    </script>				
+					<div id="map-canvas"></div>
 				</div>
-				<div class="col-md-8">
-					<h:outputLabel>Tipo de Ocorrencia:</h:outputLabel>
-					<h:selectOneMenu styleClass="form-control">
-						<!-- 						value="#{denunciaMB.denuncia.tipo}> -->
-						<f:selectItem itemLabel="Selecione uma Opção" />
-						<f:selectItem itemLabel="Furto" />
-						<f:selectItem itemLabel="Roubo" />
-						<f:selectItem itemLabel="Arrombamento Domiciliar" />
-						<f:selectItem itemLabel="Roubo de Carro" />
-						<f:selectItem itemLabel="Assalto a Grupo" />
-						<f:selectItem itemLabel="Sequestro Relampago" />
-						<f:selectItem itemLabel="Arrombamento de Loja Comercial" />
-						<f:selectItem itemLabel="Arrastao" />
-						<f:selectItem itemLabel="Tentativa de Assalto" />
-						<!-- 						<f:selectItems value="#{denunciaMB.tipos}" var="tipo" -->
-						<!-- 							itemLabel="#{tipo.descricao}" itemValue="#{tipo}" /> -->
-					</h:selectOneMenu>
+				<div class="col-md-7 fundoDenuncias " style="margin-top: 1%">
+						<h:outputLabel style="text-align: left; color: #fff;" class="seguranca" value="Dados do Crime:" />
+						<div class="col-md-12 " style="text-align: left">
+							<h:outputLabel value="Endereço:" />
+							<h:inputText id="endereco" readonly="true" class="form-control"
+								value=" #{denunciaMB.denuncia.local.endereco}" />
+							<h:outputLabel id="latitude"
+								value="#{denunciaMB.denuncia.local.coordenadaX}" />
+							<h:outputLabel id="longitude"
+								value="#{denunciaMB.denuncia.local.coordenadaY}" />
+						</div>
+						<div class="col-md-8">
+							<h:outputLabel value="Tipo de Ocorrencia:" />
+							<h:selectOneMenu styleClass="form-control"
+								value="#{denunciaMB.denuncia.tipo}">
+								<f:selectItem itemLabel="Selecione" />
+								<f:selectItems value="#{denunciaMB.tipos}" var="tipo"
+									itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+							</h:selectOneMenu>
+	
+						</div>
+						<div class="col-md-4">
+							<h:outputLabel>Realizou Boletim de Ocorrencia?</h:outputLabel>
+							<h:selectOneMenu styleClass="form-control">
+								<f:selectItem itemValue="1" itemLabel="Selecione uma Opção" />
+								<f:selectItem itemValue="2" itemLabel="Sim" />
+								<f:selectItem itemValue="2" itemLabel="Não" />
+							</h:selectOneMenu>
+						</div>
+						<div class="col-md-4">
+							<h:outputLabel>Data:</h:outputLabel>
+							<h:inputText styleClass="form-control" />
+						</div>
+						<div class="col-md-4">
+							<h:outputLabel>Horario:</h:outputLabel>
+							<h:inputText styleClass="form-control time" />
+						</div>
+						<br></br>
+						<div class="col-md-12">
+							<h:outputLabel value="Objeto Roubado:" />
+							<h:selectOneMenu styleClass="form-control"
+								value="#{denunciaMB.denuncia.objetos}">
+								<f:selectItem itemLabel="Selecione" />
+								<f:selectItems value="#{denunciaMB.objetos}" var="tipo"
+									itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+							</h:selectOneMenu>
+						</div>
+						<div class="row" >
+							<div class="col-md-12">
+								<h:commandButton styleClass="btn btn-defaut"  style="margin-top:3%;" action="#{denunciaMB.salvar()}" value="Salvar" />
+							</div>
+						</div>
 				</div>
-				<div class="col-md-4">
-					<h:outputLabel>Realizou Boletim de Ocorrencia?</h:outputLabel>
-					<h:selectOneMenu styleClass="form-control">
-						<f:selectItem itemValue="1" itemLabel="Selecione uma Opção" />
-						<f:selectItem itemValue="2" itemLabel="Sim" />
-						<f:selectItem itemValue="2" itemLabel="Não" />
-					</h:selectOneMenu>
-				</div>
-				<div class="col-md-4">
-					<h:outputLabel>Data:</h:outputLabel>
-					<h:inputText styleClass="form-control" />
-				</div>
-				<div class="col-md-4">
-					<h:outputLabel>Horario:</h:outputLabel>
-					<h:inputText styleClass="form-control" />
-				</div>
-				<div class="col-md-12">
-					<!-- 					<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}"> -->
-					<!-- 						<h:selectBooleanCheckbox value="#{denunciaMB.objetos}"/> -->
-					<!-- 					</h:selectManyCheckbox> -->
-				</div>
-			</div>
 		</div>
+
 
 	</ui:define>
 

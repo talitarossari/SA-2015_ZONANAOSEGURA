@@ -5,6 +5,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.PersistenceException;
 
 import br.senai.sc.zonanaosegura.dao.UsuarioDao;
 import br.senai.sc.zonanaosegura.entity.Usuario;
@@ -29,13 +30,16 @@ public class SessaoMB {
 	public String login(){
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usuario = dao.buscaPorLogin(usuarioForm.getLogin());
-		
-		if(checkLogin(usuario)){
-			usuarioLogado = usuario;
-			return "/admin/index?faces-redirect=true";
+		try{
+			if(checkLogin(usuario)){
+				usuarioLogado = usuario;
+				return "/admin/index?faces-redirect=true";
+			}
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuario ou senha invalida."));
+			return "/login";
+		} catch(PersistenceException e) {
+			return "";
 		}
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuario ou senha Invalida."));
-		return "/login";
 	}
 	
 	private boolean checkLogin(Usuario usuarioEncontrado) {

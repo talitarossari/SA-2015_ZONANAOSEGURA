@@ -15,6 +15,7 @@ public class Local {
 	private Long id;
 	private Float coordenadaX;
 	private Float coordenadaY;
+	private String endereco;
 	@OneToMany
 	private List<Denuncia> denuncias;
 	
@@ -41,6 +42,12 @@ public class Local {
 	}
 	public void setDenuncias(List<Denuncia> denuncias) {
 		this.denuncias = denuncias;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 	
 }

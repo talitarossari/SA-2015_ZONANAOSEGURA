@@ -29,9 +29,7 @@ public class JPAFilter implements Filter {
 			FilterChain filterChain) throws IOException, ServletException {
 		EntityManager entityManager = JPAUtil.createEntityManager(request);
 		entityManager.getTransaction().begin();
-		
 		filterChain.doFilter(request, response);
-		
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}

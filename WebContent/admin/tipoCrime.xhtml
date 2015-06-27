@@ -14,7 +14,7 @@
 	<ui:define name="adicionarObjeto"><h:link outcome="addTipoCrime"><span class="glyphicon glyphicon-plus "></span><span class="glyphicon glyphicon-piggy-bank"></span> Adicionar Tipo de Crime </h:link></ui:define>
 	<ui:define name="tabela">
 		<h:form enctype="multipart/form-data">
-			<h:dataTable styleClass="table table-striped"  value="#{tipocrimeMB.tipos}" var="item">
+			<h:dataTable styleClass="table table-striped"  value="#{tipoCrimeMB.tipos}" var="item">
 				<h:column>
 					<f:facet name="header">ID</f:facet>
 					<h:outputText value="#{item.id}" />
@@ -25,19 +25,19 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">Logo</f:facet>
-					<h:outputText value="#{item.icones}" />
+					<h:graphicImage styleClass="iconesListados" rendered="#{not empty item.icone}" url="#{tipoCrimeMB.caminhoUpload(item.icone)}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Editar</f:facet>
 					<h:commandLink styleClass="btn btn-default"
-							action="#{tipocrimeMB.editar(item.id)}">
+							action="#{tipoCrimeMB.editar(item.id)}">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</h:commandLink>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Excluir</f:facet>
 						<h:commandLink styleClass="btn btn-default" onclick="return confirm('Tem certeza?');"
-							 action="#{tipocrimeMB.excluir(item.id)}">
+							 action="#{tipoCrimeMB.excluir(item.id)}">
 							<span class="glyphicon glyphicon-trash"></span>
 						</h:commandLink>
 				</h:column>

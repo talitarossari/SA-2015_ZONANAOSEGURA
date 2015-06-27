@@ -11,8 +11,20 @@ a:hover, a:focus {
     color: #C83D3D;
 	text-decoration: none;
 }
-
-
+.mensagem {
+    color: #FFF;
+    list-style: outside none none;
+    font-size: 16px;
+    padding: 3px 0px 0px;
+    width: auto;
+    text-shadow: 1px 0px 2px #181818;
+}
+.mensagem li {
+    background-color: rgb(168, 23, 23);
+    padding-left: 12px;
+    border-radius: 9px;
+    width: 50%;
+}
 
 .navbar-default {
     background: linear-gradient(#FFF, #D4D4D4) repeat scroll 0% 0% transparent;

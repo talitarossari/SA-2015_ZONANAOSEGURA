@@ -27,7 +27,7 @@ public class TipoCrimeMB {
 	public void initMB() {
 		this.tipo = new TipoCrime();
 		tipoDao = new TipoCrimeDao();
-		this.uploadImageUtil = new UploadImageUtil("iconesTipo");
+		this.uploadImageUtil = new UploadImageUtil("iconesTipo/");
 	}
 
 	public TipoCrime getTipo() {
@@ -91,7 +91,7 @@ public class TipoCrimeMB {
 		}
 
 		tipoDao.inserir(tipo);
-		return "listarusuarios?faces-redirect=true";
+		return "tipoCrime?faces-redirect=true";
 	}
 
 	public String excluir(String idParam) {
@@ -99,13 +99,13 @@ public class TipoCrimeMB {
 		TipoCrime tipoExcluir = tipoDao.buscarPorId(id);
 		uploadImageUtil.excluir(tipoExcluir.getIcone());
 		tipoDao.excluir(id);
-		return "";
+		return "tipoCrime?faces-redirect=true";
 	}
 
 	public String editar(String idParam) {
 		Long id = Long.valueOf(idParam);
 		tipo = tipoDao.buscarPorId(id);
-		return "cadastrousuario";
+		return "addTipoCrime?faces-redirect=true";
 	}
 
 	public String caminhoUpload(String imagem) {

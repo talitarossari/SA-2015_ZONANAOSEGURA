@@ -10,10 +10,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 
 
-@WebFilter(servletNames="Faces Servlet")
+//@WebFilter(servletNames="Faces Servlet")
 public class JPAFilter_Test implements Filter {
 	private static Logger logger;
 	

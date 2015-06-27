@@ -1,10 +1,7 @@
 package br.senai.sc.zonanaosegura.dao.test;
 
-import java.util.List;
 
-import br.senai.sc.zonanaosegura.entity.Usuario;
-
-
+/*
 public class UsuarioDAO_Teste extends DAOImplements<Usuario>{
 
 	public UsuarioDAO_Teste() {
@@ -21,3 +18,4 @@ public class UsuarioDAO_Teste extends DAOImplements<Usuario>{
 	}
 	
 }
+*/

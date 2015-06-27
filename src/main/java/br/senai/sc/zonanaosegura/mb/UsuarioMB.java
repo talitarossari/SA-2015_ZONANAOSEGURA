@@ -6,6 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.persistence.PersistenceException;
+
 
 import br.senai.sc.zonanaosegura.dao.UsuarioDao;
 import br.senai.sc.zonanaosegura.entity.Usuario;
@@ -51,15 +53,15 @@ public class UsuarioMB {
 	}
 
 	public String salvar() {
-		if (usuario.getId() != null || usuario.getId() != 0 && usuario.getSenha() == null || usuario.getSenha() == "" || usuario.getSenha().isEmpty()) {
-			Usuario usu = usuarioDao.buscarPorId(usuario.getId());
-			usuario.setSenha(usu.getSenha());
-		} else if (existe(usuario.getUsuario())){
+		try{
+			usuarioDao.inserir(usuario);
+			return "usuario?faces-redirect=true";
+		} catch(PersistenceException e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Este login já existe!"));
+			usuario.setId(null);
+			return "";
 		}
-		usuarioDao.inserir(usuario);
-		return "usuario";
-		
+
 	}
 
 	public String excluir(String idParam) {
@@ -73,14 +75,6 @@ public class UsuarioMB {
 		usuario = usuarioDao.buscarPorId(id);
 		return "addusuario";
 	}
-	
-	public boolean existe(String login){
-		 Usuario usu = usuarioDao.buscaPorLogin(login);
-		 if(usu!=null){
-			 return false;
-		 }else {
-			 return true;
-		 }
-	}
+
 
 }

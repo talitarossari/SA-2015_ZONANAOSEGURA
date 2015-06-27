@@ -13,7 +13,7 @@
 	<ui:define name="content">
 		<div class="col-md-6 col-md-offset-3">
 			<h:form enctype="multipart/form-data">
-				<h:panelGroup rendered="#{tipoCrimeMB.tipo.id}">
+				<h:panelGroup rendered="#{not empty tipoCrimeMB.tipo.id}">
 					<h:outputLabel value="ID" />
 					<h:inputText styleClass="form-control"
 						value="#{tipoCrimeMB.tipo.id}" readonly="true" />

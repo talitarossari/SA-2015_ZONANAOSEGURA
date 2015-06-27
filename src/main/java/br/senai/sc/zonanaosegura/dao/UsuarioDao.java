@@ -34,12 +34,7 @@ public class UsuarioDao extends Dao {
 	public Usuario buscaPorLogin(String nome) {
 		Query query = getEntityManager().createQuery("From Usuario Where login = :nome", Usuario.class);
 		query.setParameter("nome", nome);
-		if(query.getSingleResult()!=null){
-			return (Usuario) query.getSingleResult();
-		} else{
-			return null;
-		}
-	
+		return (Usuario) query.getSingleResult();
 	}
 	
 }

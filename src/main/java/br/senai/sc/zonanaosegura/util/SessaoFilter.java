@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.senai.sc.zonanaosegura.mb.SessaoMB;
 
-//@WebFilter(urlPatterns="/admin/*")
+@WebFilter(urlPatterns="/admin/*")
 public class SessaoFilter implements Filter {
 
 	@Override

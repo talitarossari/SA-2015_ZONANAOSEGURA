@@ -12,7 +12,7 @@
 	</ui:define>
 	<ui:define name="content">
 		<div class="col-md-6 col-md-offset-3">
-			<h:message globalOnly="true" />
+			<h:messages class="mensagem" globalOnly="true" />
 			<h:form enctype="multipart/form-data">
 				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
 					<h:outputLabel value="ID" />
@@ -21,28 +21,27 @@
 				</h:panelGroup>
 				<h:inputHidden value="#{usuarioMB.usuario.id}" />
 
-				<h:outputLabel value="Nome" />
-				<h:message for="idNome" style="color:red;" />
+
+				<h:outputLabel value="Nome: " />
+				<h:message for="idNome" style="color:red;font-size:11px;" />
 				<h:inputText id="idNome" styleClass="form-control"
-					value="#{usuarioMB.usuario.usuario}" required="
-					true"
-					requiredMessage="Preenchimento obrigatório" />
+					value="#{usuarioMB.usuario.usuario}" required="true"
+					requiredMessage="	Campo obrigatório" />
 
-				<h:outputLabel value="Login" />
-				<h:message for="idLogin" style="color:red;" />
+
+				<h:outputLabel value="Login: " />
+				<h:message for="idLogin" style="color:red;font-size:11px;" />
 				<h:inputText id="idLogin" styleClass="form-control"
-					value="#{usuarioMB.usuario.login}" required="
-					true"
-					requiredMessage="Preenchimento obrigatório" />
+					value="#{usuarioMB.usuario.login}" required="true"
+					requiredMessage="	Campo obrigatório" />
 
-				<h:outputLabel value="Senha" />
-				<h:message for="idSenha" style="color:red;" />
+				<h:outputLabel value="Senha: " />
+				<h:message for="idSenha" style="color:red; font-size:11px;" />
 				<h:inputSecret id="idSenha" styleClass="form-control"
-					value="#{usuarioMB.usuario.senha}" required="
-					true"
-					requiredMessage="Preenchimento obrigatório" />
-					
-					
+					value="#{usuarioMB.usuario.senha}" required="true"
+					requiredMessage="	Campo obrigatório" />
+
+
 				<div style="margin-top: 3%;">
 					<h:commandButton action="#{usuarioMB.salvar()}" value="Salvar"
 						styleClass="btn btn-default" />
