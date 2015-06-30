@@ -25,7 +25,7 @@
 				<h:outputLabel value="Nome: " />
 				<h:message for="idNome" style="color:red;font-size:11px;" />
 				<h:inputText id="idNome" styleClass="form-control"
-					value="#{usuarioMB.usuario.usuario}" required="true"
+					value="#{usuarioMB.usuario.nome}" required="true"
 					requiredMessage="	Campo obrigatório" />
 
 
@@ -33,12 +33,12 @@
 				<h:message for="idLogin" style="color:red;font-size:11px;" />
 				<h:inputText id="idLogin" styleClass="form-control"
 					value="#{usuarioMB.usuario.login}" required="true"
-					requiredMessage="	Campo obrigatório" />
+					requiredMessage="Campo obrigatório" />
 
 				<h:outputLabel value="Senha: " />
 				<h:message for="idSenha" style="color:red; font-size:11px;" />
 				<h:inputSecret id="idSenha" styleClass="form-control"
-					value="#{usuarioMB.usuario.senha}" required="true"
+					value="#{usuarioMB.usuario.senha}" required="#{not empty usuarioMB.usuario.id}"
 					requiredMessage="	Campo obrigatório" />
 
 

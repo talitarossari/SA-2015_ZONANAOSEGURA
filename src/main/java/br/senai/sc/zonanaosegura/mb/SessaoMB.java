@@ -33,6 +33,7 @@ public class SessaoMB {
 		try{
 			if(checkLogin(usuario)){
 				usuarioLogado = usuario;
+				System.out.println(usuario.getNome());
 				return "/admin/index?faces-redirect=true";
 			}
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuario ou senha invalida."));
@@ -50,7 +51,7 @@ public class SessaoMB {
 	
 	public String logout(){
 		usuarioLogado = null;
-		return "/index?face-redirect=true";
+		return "/index?faces-redirect=true";
 	}
 
 	public Usuario getUsuarioForm() {
@@ -59,5 +60,13 @@ public class SessaoMB {
 
 	public void setUsuarioForm(Usuario usuarioForm) {
 		this.usuarioForm = usuarioForm;
+	}
+
+	public Usuario getUsuarioLogado() {
+		return usuarioLogado;
+	}
+
+	public void setUsuarioLogado(Usuario usuarioLogado) {
+		this.usuarioLogado = usuarioLogado;
 	}
 }

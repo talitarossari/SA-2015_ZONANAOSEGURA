@@ -1,122 +1,156 @@
-
 body {
 	overflow-x: hidden;
-	background-image: url("#{resource['/img/bg.png']}") ;
+	background-image: url("#{resource['/img/bg.png']}");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
 	background-size: 100% 100%;
 	height: 100%;
 }
-.mapa{
+
+.mapa {
 	height: 70%;
 	margin: 0;
-	padding: 0;	
-}
-#map-canvas{
-	height: 90%; 
-	width: 90%; 
-	margin-top:1%;
+	padding: 0;
 }
 
-#endereco{
-  cursor:default;
-  pointer-events: none;
+#map-canvas {
+	height: 90%;
+	width: 90%;
+	margin-top: 1%;
 }
 
-.campo{
+.testando>tbody>tr>td>label {
+	float: left;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-bottom: 0 !important;
+}
+
+.testando>tbody>tr>td {
+	background-color: white;
+	border-radius: 5px;
+	padding: 8px;
+	color: black;
+}
+
+.testando {
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+
+.testando>tbody>tr>td>input {
+	float: left;
+}
+
+#endereco {
+	cursor: default;
+	pointer-events: none;
+}
+
+.campo {
 	background-color: #CACACA;
 }
-.boxObjeto{
-	background-image:url("#{resource['/img/divObj.png']}");
-	background-repeat: repeat;	
-}
-.fundoDenuncias{
-	margin-top: 3%; 
-	padding: 15px;
-	background-image:url("#{resource['/img/divbg.png']}");
+
+.boxObjeto {
+	background-image: url("#{resource['/img/divObj.png']}");
 	background-repeat: repeat;
 }
 
-.altura{
-	height:100%;
+.fundoDenuncias {
+	margin-top: 3%;
+	padding: 15px;
+	background-image: url("#{resource['/img/divbg.png']}");
+	background-repeat: repeat;
 }
 
-.iconesListados{
-	width:50px;
-	height:auto;
+.altura {
+	height: 100%;
 }
 
+.iconesListados {
+	width: 50px;
+	height: auto;
+}
 
 .sugestao {
-	background-image: url("#{resource['/img/sbar.png']}") ;
-   position: absolute;
-   top: 0px;
-   height: 150px;
-   width: 35px;
-   z-index: 100;
-   right: 0px;
+	background-image: url("#{resource['/img/sbar.png']}");
+	position: absolute;
+	top: 0px;
+	height: 150px;
+	width: 35px;
+	z-index: 100;
+	right: 0px;
 }
 
-.tituloZona{
-	color:#000;
+.tituloZona {
+	color: #000;
 	font-size: 21px;
 }
-.lupa{
-	color:#fff;
+
+.lupa {
+	color: #fff;
 }
 
-.seguranca{
-	font-size:23px;
+.seguranca {
+	font-size: 23px;
 	text-align: center;
 	width: 100%;
 	color: #000;
 }
 
-html{
-	  height: 100%;
-}
-body{
-	  height: 100%;
+html {
+	height: 100%;
 }
 
-.fundologin{
-	!important;
+body {
+	height: 100%;
 }
 
-@media(max-width: 545px){ 
-	.teste{
-		padding:0 !important;
+.fundologin { !important;
+	
+}
+
+@media ( max-width : 545px) {
+	.teste {
+		padding: 0 !important;
 	}
-
-
 }
-.botaoLogin{
+
+.botaoLogin {
 	background-color: rgb(160, 2, 2);
-	margin-top:5%;
+	margin-top: 5%;
 }
 
-.texto{
-	  text-shadow: 2px 2px 1px #000000;
+.texto {
+	text-shadow: 2px 2px 1px #000000;
 }
 
-::-webkit-scrollbar{
-     width: 14px;
+::-webkit-scrollbar {
+	width: 14px;
 }
-::-webkit-scrollbar-track{
-     box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
 }
-::-webkit-scrollbar-track-piece{
-  background: #BDBDBD;
-  border-radius: 4px;
-  border: 1px solid #BDBDBD;
+
+::-webkit-scrollbar-track-piece {
+	background: #BDBDBD;
+	border-radius: 4px;
+	border: 1px solid #BDBDBD;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: #848484;
-    box-shadow: inset 0 0 6px rgba(0,0,0,0); 
-    border-radius:4px;  
-    border:1px solid #848484;
+	background: #848484;
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+	border-radius: 4px;
+	border: 1px solid #848484;
 }
+
 ::-webkit-scrollbar-thumb:window-inactive {
-    background: #fff;
-}: #000; 
+	background: #fff;
+}
+:
+ 
+#000
+;

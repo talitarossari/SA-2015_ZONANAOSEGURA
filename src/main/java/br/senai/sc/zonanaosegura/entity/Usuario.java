@@ -13,14 +13,14 @@ public class Usuario {
 	private Long id;
 	@Column(unique = true)
 	private String login;
-	private String usuario;
+	private String nome;
 	private String senha;		
 	public Usuario(){
 		
 	}
 	
 	public Usuario(String usuario, String senha) {
-		this.usuario = usuario;
+		this.nome = usuario;
 		this.senha = senha;
 	}
 	
@@ -40,12 +40,12 @@ public class Usuario {
 		this.login = login;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getNome() {
+		return nome;
 	}
 	
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setNome(String usuario) {
+		this.nome = usuario;
 	}
 	
 	public String getSenha() {
@@ -58,7 +58,7 @@ public class Usuario {
 	
 	@Override
 	public String toString() {
-		return "\nID:" + id + "\nUsuario:" + usuario + "\nSenha:"
+		return "\nID:" + id + "\nUsuario:" + nome + "\nSenha:"
 				+ senha+"\n";
 	}
 }

@@ -12,11 +12,11 @@
 	</ui:define>
 	<ui:define name="content">
 		<div class="container-fluid fundo " style="height: 100%">
-				<div class="col-md-5" style="height: 100%">
-					<script type="text/javascript"
-						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
+			<div class="col-md-5" style="height: 100%">
+				<script type="text/javascript"
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
 	    			</script>
-					<script>
+				<script>
 						var geocoder;
 						var map;
 						var infowindow = new google.maps.InfoWindow();
@@ -38,8 +38,8 @@
 						      var pos = new google.maps.LatLng(position.coords.latitude,
 						                                       position.coords.longitude);
 						
-								document.getElementById("latitude").value = position.coords.latitude;
-								document.getElementById("longitude").value = position.coords.longitude; 
+								document.getElementById("form:latitude").value = position.coords.latitude;
+								document.getElementById("form:longitude").value = position.coords.longitude; 
 								codeLatLng();
 						      marker = new google.maps.Marker({
 						        map: map,
@@ -48,8 +48,8 @@
 						      });
 						
 								google.maps.event.addListener(marker, 'dragend', function(evt){
-								document.getElementById("latitude").value = evt.latLng.lat();
-								document.getElementById("longitude").value =evt.latLng.lng() ; 
+								document.getElementById("form:latitude").value = evt.latLng.lat();
+								document.getElementById("form:longitude").value =evt.latLng.lng() ; 
 								codeLatLng();
 							});
 								
@@ -84,13 +84,13 @@
 						
 						
 						function codeLatLng() {
-						  var lat = document.getElementById('latitude').value;
-						  var lng = document.getElementById('longitude').value;
+						  var lat = document.getElementById('form:latitude').value;
+						  var lng = document.getElementById('form:longitude').value;
 						  var latlng = new google.maps.LatLng(lat, lng);
 						  geocoder.geocode({'latLng': latlng}, function(results, status) {
 						    if (status == google.maps.GeocoderStatus.OK) {
 						      if (results[1]) {
-								document.getElementById("endereco").value = results[0].formatted_address;
+								document.getElementById("form:endereco").value = results[0].formatted_address;
 						      } else {
 						        alert('No results found');
 						      }
@@ -100,64 +100,70 @@
 						  });
 						}
 						google.maps.event.addDomListener(window, 'load', initialize);
-				    </script>				
-					<div id="map-canvas"></div>
-				</div>
-				<div class="col-md-7 fundoDenuncias " style="margin-top: 1%">
-						<h:outputLabel style="text-align: left; color: #fff;" class="seguranca" value="Dados do Crime:" />
-						<div class="col-md-12 " style="text-align: left">
-							<h:outputLabel value="Endereço:" />
-							<h:inputText id="endereco" readonly="true" class="form-control"
-								value=" #{denunciaMB.denuncia.local.endereco}" />
-							<h:outputLabel id="latitude"
-								value="#{denunciaMB.denuncia.local.coordenadaX}" />
-							<h:outputLabel id="longitude"
-								value="#{denunciaMB.denuncia.local.coordenadaY}" />
-						</div>
-						<div class="col-md-8">
-							<h:outputLabel value="Tipo de Ocorrencia:" />
-							<h:selectOneMenu styleClass="form-control"
-								value="#{denunciaMB.denuncia.tipo}">
-								<f:selectItem itemLabel="Selecione" />
-								<f:selectItems value="#{denunciaMB.tipos}" var="tipo"
-									itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
-							</h:selectOneMenu>
-	
-						</div>
-						<div class="col-md-4">
-							<h:outputLabel>Realizou Boletim de Ocorrencia?</h:outputLabel>
-							<h:selectOneMenu styleClass="form-control">
-								<f:selectItem itemValue="1" itemLabel="Selecione uma Opção" />
-								<f:selectItem itemValue="2" itemLabel="Sim" />
-								<f:selectItem itemValue="2" itemLabel="Não" />
-							</h:selectOneMenu>
-						</div>
-						<div class="col-md-4">
-							<h:outputLabel>Data:</h:outputLabel>
-							<h:inputText styleClass="form-control" />
-						</div>
-						<div class="col-md-4">
-							<h:outputLabel>Horario:</h:outputLabel>
-							<h:inputText styleClass="form-control time" />
-						</div>
-						<br></br>
-						<div class="col-md-12">
-							<h:outputLabel value="Objeto Roubado:" />
-							<h:selectOneMenu styleClass="form-control"
-								value="#{denunciaMB.denuncia.objetos}">
-								<f:selectItem itemLabel="Selecione" />
-								<f:selectItems value="#{denunciaMB.objetos}" var="tipo"
-									itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
-							</h:selectOneMenu>
-						</div>
-						<div class="row" >
-							<div class="col-md-12">
-								<h:commandButton styleClass="btn btn-defaut"  style="margin-top:3%;" action="#{denunciaMB.salvar()}" value="Salvar" />
-							</div>
-						</div>
-				</div>
-		</div>
+				    </script>
+				<div id="map-canvas"></div>
+			</div>
+			<div class="col-md-7 fundoDenuncias " style="margin-top: 1%">
+				<h:form id="form" enctype="multipart/form-data">
+					<h:outputLabel style="text-align: left; color: #fff;"
+						class="seguranca" value="Dados do Crime:" />
+					<div class="col-md-12 " style="text-align: left">
+						<h:outputLabel value="Endereço:" />
+						<h:inputText id="endereco" readonly="true"
+							style="-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none; user-select: none;cursor: default;"
+							class="form-control"
+							value=" #{denunciaMB.denuncia.local.endereco}" />
+						<h:outputLabel id="latitude"
+							value="#{denunciaMB.denuncia.local.coordenadaX}" />
+						<h:outputLabel id="longitude"
+							value="#{denunciaMB.denuncia.local.coordenadaY}" />
+					</div>
 
+					<div class="col-md-8">
+						<h:outputLabel value="Tipo de Ocorrencia:" />
+						<h:selectOneMenu styleClass="form-control"
+							value="#{denunciaMB.denuncia.tipo}">
+							<f:selectItem itemLabel="Selecione" />
+							<f:selectItems value="#{denunciaMB.tipos}" var="tipo"
+								itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+						</h:selectOneMenu>
+
+					</div>
+					<div class="col-md-4">
+						<h:outputLabel>Realizou B.O?</h:outputLabel>
+						<h:selectOneMenu styleClass="form-control">
+							<f:selectItem itemValue="1" itemLabel="Selecione" />
+							<f:selectItem itemValue="2" itemLabel="Sim" />
+							<f:selectItem itemValue="2" itemLabel="Não" />
+						</h:selectOneMenu>
+					</div>
+					<div class="col-md-4">
+						<h:outputLabel>Data:</h:outputLabel>
+						<h:inputText styleClass="form-control" />
+					</div>
+					<div class="col-md-4">
+						<h:outputLabel>Horario:</h:outputLabel>
+						<h:inputText styleClass="form-control time" />
+					</div>
+					<br></br>
+					<div class="col-md-12">
+						<h:outputLabel value="Objeto Roubado:" />
+						<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}"
+							styleClass="testando">
+							<f:selectItems value="#{objetoMB.objetos}" var="tipo"
+								itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+						</h:selectManyCheckbox>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h:commandButton styleClass="btn btn-defaut"
+								style="margin-top:3%;" action="#{denunciaMB.salvar()}"
+								value="Salvar" />
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</div>
 
 	</ui:define>
 

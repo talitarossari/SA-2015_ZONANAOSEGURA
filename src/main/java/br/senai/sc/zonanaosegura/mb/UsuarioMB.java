@@ -61,7 +61,6 @@ public class UsuarioMB {
 			usuario.setId(null);
 			return "";
 		}
-
 	}
 
 	public String excluir(String idParam) {
@@ -73,8 +72,6 @@ public class UsuarioMB {
 	public String editar(String idParam) {
 		Long id = Long.valueOf(idParam);
 		usuario = usuarioDao.buscarPorId(id);
-		return "addusuario";
+		return "addUsuario";
 	}
-
-
 }

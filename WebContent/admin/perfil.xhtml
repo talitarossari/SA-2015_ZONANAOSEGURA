@@ -15,25 +15,21 @@
 			<h:graphicImage class="img-responsive" library="img" name="login.png" />
 		</div>
 		<div class="col-md-6 col-xs-6">
-			<h:form enctype="multipart/form-data">
-				<h:panelGroup rendered="#{not empty usuarioMB.usuario.id}">
-					<h:outputLabel value="ID" />
-					<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.id}"
-						readonly="true" />
-				</h:panelGroup>
-				<h:inputHidden value="#{usuarioMB.usuario.id}" />
-				<h:outputLabel value="Nome" />
-				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.usuario}" />
+		<h:form>
+				<h:inputHidden value="#{sessaoMB.usuarioLogado.id}" />
+				<h:outputLabel value="Nome: " />
+				<h:outputText  value="#{sessaoMB.usuarioLogado.nome}" />
 				<h:outputLabel value="Login" />
-				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.login}" />
+				<h:outputText value="#{sessaoMB.usuarioLogado.login}" />
 				<h:outputLabel value="Senha" />
-				<h:inputText styleClass="form-control" value="#{usuarioMB.usuario.senha}" readonly="false" />		
+				<h:outputText value="#{sessaoMB.usuarioLogado.senha}" />	
 				<div style="margin-top: 3%;">
-					<h:commandButton action="#{usuarioMB.salvar()}" value="Salvar"
-						styleClass="btn btn-default" />
+					<h:commandButton action="#{usuarioMB.editar(sessaoMB.usuarioLogado.id)}" value="Editar"
+						styleClass="btn btn-inverse" />
 					<button class="btn btn-default" type="reset">Restaurar</button>
 				</div>
 				</h:form>
+				
 			</div>	
 	</ui:define>
 </ui:composition>

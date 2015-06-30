@@ -7,6 +7,26 @@
 body {
     background-color: #f8f8f8;
 }
+
+
+
+
+.dropdown-menu > li  > form > a{
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+}
+
+.dropdown-menu > li > form > a:hover, .dropdown-menu > li > form > a:focus {
+    text-decoration: none;
+    background-color: #F5F5F5;
+    color: #262626;
+}
+
 a:hover, a:focus {
     color: #C83D3D;
 	text-decoration: none;
