@@ -1,0 +1,73 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<title>Admin - <ui:insert name="title">Inicio</ui:insert></title>
+
+<h:outputScript library="jquery" name="jquery.js"/>
+<h:outputStylesheet library="css" name="bootstrap.css" />
+<h:outputStylesheet library="css" name="padrao.css" />
+<h:outputStylesheet library="css" name="Mapa2.css" />
+<h:outputStylesheet library="css" name="cssMapa.css" />
+<h:outputStylesheet library="css" name="morris.css" />
+<h:outputScript library="js" name="dropdowns.js" />
+<h:outputScript library="js" name="morris/morris-data.js" />
+<h:outputScript library="js" name="morris/morris.js" />
+<h:outputScript library="js" name="morris/raphael.min.js" />
+<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+
+<link rel="icon" href=" #{resource['/img/ApiThief.png']}" />
+
+</h:head>
+
+<body style="overflow-x: hidden;">
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+	    <div id="wrapper" style="height: 100%">
+			
+			
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        	
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Navebar</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h:link outcome="/index" class="navbar-brand" style="padding: 0px;"><h:graphicImage style="height: 151%;" library="img" name="logo.png" /></h:link>
+            </div>
+            <!-- Top Menu Items -->
+           
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+	        <div id="page-wrapper" style="height: 100%">
+	            <ui:insert name="content">
+							
+								  
+										
+			                <div class="row" style="height: 100%">
+			                    <div class="col-lg-12 col-md-12 col-xs-12 " style="height: 100%">
+			                     <ui:insert name="tabela"> 
+			                     
+			                     
+								</ui:insert>
+			             	</div>
+			     		</div>
+					
+				</ui:insert>
+	        </div>
+	</div>
+</body>
+
+</html>

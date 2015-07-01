@@ -1,0 +1,19 @@
+.capaVideo
+	{
+		
+		box-shadow: 3px 8px 10px rgba(84, 84, 84, 0.47);
+		filter: grayscale(1);
+		-webkit-filter: grayscale(1);
+		-moz-filter: grayscale(1);
+		-o-filter: grayscale(1);
+		-ms-filter: grayscale(1);
+	}
+	.capaVideo:hover
+	{
+		filter: grayscale(0);
+		-webkit-filter: grayscale(0);
+		-moz-filter: grayscale(0);
+		-o-filter: grayscale(0);
+		-ms-filter: grayscale(0);
+		box-shadow: 3px 3px 10px rgba(84, 84, 84, 0.47);
+	}
