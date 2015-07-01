@@ -19,10 +19,6 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(String usuario, String senha) {
-		this.nome = usuario;
-		this.senha = senha;
-	}
 	
 	public Long getId() {
 		return id;

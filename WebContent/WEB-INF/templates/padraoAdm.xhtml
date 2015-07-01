@@ -121,12 +121,14 @@
 										
 										</div>
 										<div class=" navbar-right" style="margin-right: 0px;">
-											<form action="" class="search-form">
-												<div class="form-group has-feedback" style="top: 7px;">
-													<label for="search" class="sr-only">Digite o ID Usuario</label>
-													<input type="text" class="form-control" name="search" id="search" placeholder="Digite o ID"></input>
-													<span class="glyphicon glyphicon-search form-control-feedback"></span>
-												</div>
+											<form class="search-form">
+												<ui:insert name="pesquisaObjeto">
+													<div class="form-group has-feedback"  style="top: 7px;">
+														<label for="search" class="sr-only">Digite o ID Usuario</label>
+														<input type="text" class="form-control" name="search" id="search" placeholder="Digite o ID"></input>
+														<span class="glyphicon glyphicon-search form-control-feedback"></span>
+													</div>
+												</ui:insert>
 											</form>
 										</div>
 								  </div>
