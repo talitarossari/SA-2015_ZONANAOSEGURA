@@ -6,8 +6,6 @@ $(function(){
 	});
 });
 
-
-
 function abrir(){
 	document.getElementById("#enviarSugestao").style.display="block";
 }

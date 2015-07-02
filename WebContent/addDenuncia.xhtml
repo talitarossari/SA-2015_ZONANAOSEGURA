@@ -13,95 +13,12 @@
 	<ui:define name="content">
 		<div class="container-fluid fundo " style="height: 100%">
 			<div class="col-md-5" style="height: 100%">
-				<script type="text/javascript"
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
-	    			</script>
-				<script>
-						var geocoder;
-						var map;
-						var infowindow = new google.maps.InfoWindow();
-						var marker;
-						
-						  geocoder = new google.maps.Geocoder();
-						  
-						function initialize() {
-						  var mapOptions = {
-						    zoom: 15,
-							disableDefaultUI: true,
-						  };
-						  map = new google.maps.Map(document.getElementById('map-canvas'),
-						      mapOptions);
-							  
-						  // Try HTML5 geolocation
-						  if(navigator.geolocation) {
-						    navigator.geolocation.getCurrentPosition(function(position) {
-						      var pos = new google.maps.LatLng(position.coords.latitude,
-						                                       position.coords.longitude);
-						
-								document.getElementById("form:latitude").value = position.coords.latitude;
-								document.getElementById("form:longitude").value = position.coords.longitude; 
-								codeLatLng();
-						      marker = new google.maps.Marker({
-						        map: map,
-						        position: pos,
-								draggable: true,
-						      });
-						
-								google.maps.event.addListener(marker, 'dragend', function(evt){
-								document.getElementById("form:latitude").value = evt.latLng.lat();
-								document.getElementById("form:longitude").value =evt.latLng.lng() ; 
-								codeLatLng();
-							});
-								
-						      map.setCenter(pos);
-						    }, function() {
-						      handleNoGeolocation(true);
-						    });
-						  } else {
-						    // Browser doesn't support Geolocation
-						    handleNoGeolocation(false);
-						  }
-						}
-						
-						function handleNoGeolocation(errorFlag) {
-						  if (errorFlag) {
-						    var content = 'Você foi redimencionado ao Rio de Janeiro!';
-						  } else {
-						    var content = 'Error: Your browser doesn\'t support geolocation.';
-						  }
-						 posicao = new google.maps.LatLng(-22.9035, -43.2096);
-						  var options = {
-						    map: map,
-						    position: new google.maps.LatLng(-22.9035, -43.2096),
-						  };
-							marker = new google.maps.Marker({
-						        map: map,
-						        position: posicao,
-								draggable: true,
-						      });
-						  map.setCenter(options.position);
-						}
-						
-						
-						function codeLatLng() {
-						  var lat = document.getElementById('form:latitude').value;
-						  var lng = document.getElementById('form:longitude').value;
-						  var latlng = new google.maps.LatLng(lat, lng);
-						  geocoder.geocode({'latLng': latlng}, function(results, status) {
-						    if (status == google.maps.GeocoderStatus.OK) {
-						      if (results[1]) {
-								document.getElementById("form:endereco").value = results[0].formatted_address;
-						      } else {
-						        alert('No results found');
-						      }
-						    } else {
-						      alert('Geocoder failed due to: ' + status);
-						    }
-						  });
-						}
-						google.maps.event.addDomListener(window, 'load', initialize);
-				    </script>
-				<div id="map-canvas"></div>
+				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
+	    		</script>
+				
+				<div id="map-canvas">
+					<h:outputScript library="js" name="mapaAddDenuncia.js" />
+				</div>
 			</div>
 			<div class="col-md-7 fundoDenuncias " style="margin-top: 1%">
 				<h:form id="form" enctype="multipart/form-data">
@@ -117,7 +34,7 @@
 							value="#{denunciaMB.denuncia.local.latitude}" />
 						<h:outputLabel id="longitude"
 							value="#{denunciaMB.denuncia.local.longitude}" />
-						<h:outputLabel id="longitude"
+						<h:outputLabel id="cidade"
 							value="#{denunciaMB.denuncia.local.cidade}" />
 					</div>
 
@@ -144,13 +61,14 @@
 						<h:outputLabel>Data:</h:outputLabel>
 						<h:inputText styleClass="form-control" id="data"
 							converterMessage="Data inválida">
-								<f:passThroughAttribute name="type" value="datetime-local" />
+								<f:passThroughAttribute name="type" value="date" />
 								<f:convertDateTime pattern="yyyy-MM-dd" />
 						</h:inputText>
 					</div>
 					<div class="col-md-4">
 						<h:outputLabel>Horario:</h:outputLabel>
-						<h:inputText styleClass="form-control time" />
+						<h:inputText styleClass="form-control time" >
+						</h:inputText>
 					</div>
 					<div class="col-md-4">
 						<h:outputLabel>Dinheiro:</h:outputLabel>
