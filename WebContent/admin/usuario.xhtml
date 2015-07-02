@@ -16,6 +16,14 @@
 				<span class="glyphicon glyphicon-plus "></span>
 				<span class="glyphicon glyphicon-user "></span> Adicionar Usuario </h:link>
 		</ui:define>
+		<ui:define name="pesquisaObjeto">
+			<div class="form-group has-feedback" style="top: 7px;">
+				<label for="search" class="sr-only">Digite o ID Usuario</label>
+				<h:outputText type="text" class="form-control" name="search" id="search" placeholder="Digite o ID"/>
+				<span class="glyphicon glyphicon-search form-control-feedback"></span>
+			</div>
+		</ui:define>
+		
 		<ui:define name="tabela">
 			<h:form enctype="multipart/form-data">
 				<h:dataTable styleClass="table table-striped"
