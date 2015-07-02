@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-
+	
 <ui:composition template="/WEB-INF/templates/padraoDenuncia.xhtml">
 	<ui:define name="title">
 	    Fui Roubado
@@ -137,9 +137,14 @@
 							<f:selectItem itemValue="2" itemLabel="Não" />
 						</h:selectOneMenu>
 					</div>
-					<div class="col-md-4">
+					
+					<div class="col-md-4" styleClass="datepicker">
 						<h:outputLabel>Data:</h:outputLabel>
-						<h:inputText styleClass="form-control" />
+						<h:inputText styleClass="form-control" id="data"
+							converterMessage="Data inválida">
+								<f:passThroughAttribute name="type" value="datetime-local" />
+								<f:convertDateTime pattern="yyyy-MM-dd" />
+						</h:inputText>
 					</div>
 					<div class="col-md-4">
 						<h:outputLabel>Horario:</h:outputLabel>

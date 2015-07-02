@@ -7,12 +7,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ValueChangeEvent;
 
+import jdk.nashorn.internal.parser.JSONParser;
 import br.senai.sc.zonanaosegura.dao.LocalDao;
 import br.senai.sc.zonanaosegura.entity.Local;
 
-import com.googlecode.gmaps4jsf.component.common.Position;
-import com.googlecode.gmaps4jsf.services.GMaps4JSFServiceFactory;
-import com.googlecode.gmaps4jsf.services.data.PlaceMark;
+
 
 @ManagedBean
 public class LocalMB {
@@ -24,6 +23,7 @@ public class LocalMB {
 	private LocalDao localDao;
 	private String MarkerStatus;
 	private String LocalInforma;
+	
 
 	public String getLatitude() {
 		if (latitude == null) {
@@ -53,37 +53,7 @@ public class LocalMB {
 		return "";
 	}
 
-	private static String ignoreNull(String attributeValue) {
-		if (attributeValue == null) {
-			return "";
-		}
 
-		return attributeValue;
-	}
-
-	public void processoMarker(ValueChangeEvent event)
-			throws AbortProcessingException {
-		MarkerStatus = "Marker B status:" + event.getNewValue().toString();
-		Position position = (Position) event.getNewValue();
-
-		try {
-			PlaceMark placeMark = GMaps4JSFServiceFactory
-					.getReverseGeocoderService().getPlaceMark(
-							position.getLatitude(), position.getLongitude());
-
-			LocalInforma = "Selected Latitude, Longitude: "
-					+ position.getLatitude() + ", " + position.getLongitude()
-					+ "<br>Address: " + ignoreNull(placeMark.getAddress())
-					+ "<br>Country code: "
-					+ ignoreNull(placeMark.getCountryCode())
-					+ "<br>Country name: "
-					+ ignoreNull(placeMark.getCountryName()) + "<br>Accuracy: "
-					+ placeMark.getAccuracy();
-		} catch (Exception ex) {
-			LocalInforma = NOT_AVAILABLE;
-			ex.printStackTrace();
-		}
-	}
 
 	@PostConstruct
 	public void initMB() {

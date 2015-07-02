@@ -99,5 +99,9 @@ public class DenunciaMB {
 		denuncia = denunciaDao.buscarPorId(id);
 		return "cadastrodenuncia";
 	}
+	
+	public void buscarPorCidade(){
+		
+	}
 
 }
