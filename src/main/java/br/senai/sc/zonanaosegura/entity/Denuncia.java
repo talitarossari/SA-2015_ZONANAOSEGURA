@@ -18,6 +18,7 @@ public class Denuncia {
 	private Date date;
 	private String horario;
 	private String descricao;
+	private String bo;
 	@ManyToOne
 	private Local local;
 	@ManyToMany
@@ -79,6 +80,14 @@ public class Denuncia {
 
 	public void setHorario(String horario) {
 		this.horario = horario;
+	}
+
+	public String getBo() {
+		return bo;
+	}
+
+	public void setBo(String bo) {
+		this.bo = bo;
 	}
 
 }
