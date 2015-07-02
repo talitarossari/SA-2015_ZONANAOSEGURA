@@ -97,4 +97,34 @@ $(function() {
 						});
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
-})
+});
+
+$(function(){
+	$(".descricao").on('keyup',function(event){
+        $(this).val($(this).val().substring(0,256));
+		if(this.value.length != 256){
+			$(".contador").text(256-this.value.length+" caracteres restantes");
+		} else {
+			$(".contador").text("Voce utilizou todos os caracteres.");
+		}
+	});
+	$(".descricao").on('keydown',function(event){
+        $(this).val($(this).val().substring(0,255));
+	});
+	
+	
+	$("#horario").on('keyup',function(event){
+        $(this).val($(this).val().substring(0,5));
+		if(this.val().length == 2){
+			document.getElementById("form:horario").value = document.getElementById("form:horario").value+":";
+		} 
+	});
+	$("#horario").on('keydown',function(event){
+        $(this).val($(this).val().substring(0,5));
+		if(this.val().length == 2){
+			document.getElementById("form:horario").value = document.getElementById("form:horario").value+":";
+		} 
+	});
+	
+	
+});

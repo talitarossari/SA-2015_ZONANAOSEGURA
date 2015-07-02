@@ -67,14 +67,12 @@
 					</div>
 					<div class="col-md-4">
 						<h:outputLabel>Horario:</h:outputLabel>
-						<h:inputText styleClass="form-control time" >
-						</h:inputText>
+						<h:inputText value="#{denunciaMB.denuncia.horario}" styleClass="form-control" id="horario"/>
 					</div>
 					<div class="col-md-4">
 						<h:outputLabel>Dinheiro:</h:outputLabel>
 						<h:inputText styleClass="form-control time" />
 					</div>
-					<br></br>
 					<div class="col-md-12">
 						<h:outputLabel value="Objeto Roubado:" />
 						<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}"
@@ -82,6 +80,11 @@
 							<f:selectItems value="#{objetoMB.objetos}" var="tipo"
 								itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
 						</h:selectManyCheckbox>
+					</div>
+					<div class="col-md-12">
+						<h:outputLabel value="Descricao do Crime:" />
+						<h:inputTextarea styleClass="descricao" value="#{denunciaMB.denuncia.descricao}"/>
+						<span class="contador">256 caracteres restantes.</span>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
