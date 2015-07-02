@@ -5,14 +5,14 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-
+	
 <ui:composition template="/WEB-INF/templates/padraoDenuncia.xhtml">
 	<ui:define name="title">
 	    Fui Roubado
 	</ui:define>
 	<ui:define name="content">
 		<div class="container-fluid fundo " style="height: 100%">
-			<div class="col-md-5 col-xs-12" style="height: 100%; padding: 15px;">
+			<div class="col-md-5" style="height: 100%">
 				<script type="text/javascript"
 					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
 	    			</script>
@@ -103,7 +103,7 @@
 				    </script>
 				<div id="map-canvas"></div>
 			</div>
-			<div class="col-md-7 col-xs-12 fundoDenuncias " style="margin-top: 1%">
+			<div class="col-md-7 fundoDenuncias " style="margin-top: 1%">
 				<h:form id="form" enctype="multipart/form-data">
 					<h:outputLabel style="text-align: left; color: #fff;"
 						class="seguranca" value="Dados do Crime:" />
@@ -113,12 +113,12 @@
 							style="-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none; user-select: none;cursor: default;"
 							class="form-control"
 							value=" #{denunciaMB.denuncia.local.endereco}" />
-						<h:inputHidden id="latitude"
+						<h:outputLabel id="latitude"
 							value="#{denunciaMB.denuncia.local.latitude}" />
-						<h:inputHidden id="longitude"
+						<h:outputLabel id="longitude"
 							value="#{denunciaMB.denuncia.local.longitude}" />
-						<h:inputHidden id="cidade"
-							value="#{denunciaMB.denuncia.local.cidade.cidade}" />
+						<h:outputLabel id="longitude"
+							value="#{denunciaMB.denuncia.local.cidade}" />
 					</div>
 
 					<div class="col-md-8">
@@ -133,67 +133,28 @@
 					</div>
 					<div class="col-md-4">
 						<h:outputLabel>Realizou B.O?</h:outputLabel>
-						<h:selectOneMenu styleClass="form-control" value="#{denunciaMB.denuncia.bo}">
-							<f:selectItem itemValue="0" itemLabel="Selecione" />
-							<f:selectItem itemValue="1" itemLabel="Sim" />
+						<h:selectOneMenu styleClass="form-control">
+							<f:selectItem itemValue="1" itemLabel="Selecione" />
+							<f:selectItem itemValue="2" itemLabel="Sim" />
 							<f:selectItem itemValue="2" itemLabel="Não" />
 						</h:selectOneMenu>
 					</div>
-					<div class="col-md-4">
+					
+					<div class="col-md-4" styleClass="datepicker">
 						<h:outputLabel>Data:</h:outputLabel>
-						<h:inputText styleClass="form-control" value="#{denunciaMB.denuncia.date}">
-							<f:convertDateTime pattern="MM/dd/yyyy"/>
+						<h:inputText styleClass="form-control" id="data"
+							converterMessage="Data inválida">
+								<f:passThroughAttribute name="type" value="datetime-local" />
+								<f:convertDateTime pattern="yyyy-MM-dd" />
 						</h:inputText>
 					</div>
 					<div class="col-md-4">
-						<h:outputLabel>Horario aproximado:</h:outputLabel>
-						<h:inputText  id="horario" value="#{denunciaMB.denuncia.horario}"/>
-						<div class="col-md-6">
-							<select id="comboHorarioHora" class="form-control ">
-								<option style="padding:0px;" value="Selecione" label="Selecione" />
-								<option value="00" label="00" />
-								<option value="01" label="01" />
-								<option value="02" label="02" />
-								<option value="03" label="03" />
-								<option value="04" label="04" />
-								<option value="05" label="05" />
-								<option value="06" label="06" />
-								<option value="07" label="07" />
-								<option value="08" label="08" />
-								<option value="09" label="09" />
-								<option value="10" label="10" />
-								<option value="11" label="11" />
-								<option value="12" label="12" />
-								<option value="13" label="13" />
-								<option value="14" label="14" />
-								<option value="15" label="15" />
-								<option value="16" label="16" />
-								<option value="17" label="17" />
-								<option value="18" label="18" />
-								<option value="19" label="19" />
-								<option value="20" label="20" />
-								<option value="21" label="21" />
-								<option value="22" label="22" />
-								<option value="23" label="23" />
-							</select>
-						</div>
-						<div class="col-md-6">
-							<select id="comboHorarioMin" class="form-control ">
-								<option style="padding:0px;" value="Selecione" label="Selecione" />
-								<option value="00" label="00" />
-								<option value="15" label="15" />
-								<option value="30" label="30" />
-								<option value="45" label="45" />
-							</select>
-						</div>
-						<script>
-						$("#comboHorarioMin").on("change",function () {
-							document.getElementById("horario").value= $("#comboHorarioHora").val()+":"+$("#comboHorarioMin").val();
-						});
-						$("#comboHorarioHora").on("change",function () {
-							document.getElementById("horario").value = $("#comboHorarioHora").val()+":"+$("#comboHorarioMin").val();
-						});
-						</script>
+						<h:outputLabel>Horario:</h:outputLabel>
+						<h:inputText styleClass="form-control time" />
+					</div>
+					<div class="col-md-4">
+						<h:outputLabel>Dinheiro:</h:outputLabel>
+						<h:inputText styleClass="form-control time" />
 					</div>
 					<br></br>
 					<div class="col-md-12">
@@ -204,24 +165,6 @@
 								itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
 						</h:selectManyCheckbox>
 					</div>
-						<div class="col-md-12">
-							<h:inputTextarea styleClass="form-control descricao" value="#{denunciaMB.denuncia.descricao}" />	
-							<span class="quantidade">256 Caracteres restantes</span>
-						</div>
-						
-						<script>
-							$(".descricao").on('keyup',function(event){
-						         $(this).val($(this).val().substring(0,256));
-								if(this.value.length != 256){
-									$(".quantidade").text(256-this.value.length+" caracteres restantes");
-								} else {
-									$(".quantidade").text("Você utilizou todos os caracteres.");
-								}
-							});
-							$(".descricao").on('keydown',function(event){
-						         $(this).val($(this).val().substring(0,255));
-							});
-						</script>
 					<div class="row">
 						<div class="col-md-12">
 							<h:commandButton styleClass="btn btn-defaut"
