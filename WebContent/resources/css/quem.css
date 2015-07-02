@@ -7,9 +7,9 @@
 		transform: rotateY(180deg);
 	}
 
-.flip-container, .front, .back {
+.flip-container, .front, .backB, .backR {
 	width: 241px;
-	height: 264px;
+	height: 241px;
 }
 
 /* flip speed goes here */
@@ -41,9 +41,15 @@
 	transform: rotateY(180deg);
 	;
 }
-.back {
+.backB{
 	transform: rotateY(180deg);
-	background-image: url("#{resource['/img/bgB.jpg']}") ;
+	background-image: url("#{resource['/img/bgB.jpg']}");
+	background-size: 100%;
+}
+.backR{
+	transform: rotateY(180deg);
+	background-image: url("#{resource['/img/bgR.jpg']}");
+	background-size: 100%;
 }
 
 .flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
