@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h:outputStylesheet library="js" name="jquery.js"/>
+
+<ui:composition template="/WEB-INF/templates/quem.xhtml">
+	<ui:define name="title">
+	    Quem Somos
+	</ui:define>
+	<ui:define name="header">
+		<div class="containt-fluid fundo">
+			<div class="col-md-4 col-md-offset-1 col-xs-12" style="margin-top: 5%">
+			<div class="flip-container"
+				ontouchstart="this.classList.toggle('hover');">
+				<div class="flipper">
+					<div class="front" style="background-color: #B2B2B2;">
+						<h:graphicImage class="img-responsive" library="img" name="1.jpg" style="width: 114%;"/>
+						
+					</div>
+						<div class="back">
+													
+							<h1>Gabriel Rodrigues Segalla</h1>
+							<p>Gabriel Rorigues Segalla</p>
+							<h:graphicImage class="img-responsive" library="img" name="email_button.png" style="width: 20%;"/>
+							<h:graphicImage class="img-responsive" library="img" name="face.png" style="width: 20%;"/>
+							<h:graphicImage class="img-responsive" library="img" name="bgB.jpg" style="width: 114%;"/>	
+					</div>
+					</div>
+				</div>
+				<br></br>
+				<div class="flip-container"
+				ontouchstart="this.classList.toggle('hover');">
+				<div class="flipper">
+					<div class="front" style="background-color: #B2B2B2;">
+						<h:graphicImage class="img-responsive" library="img" name="talita.jpg" style="width: 114%;"/>
+						
+					</div>
+						<div class="back">							
+							<h1>Talita Rossari</h1>
+							
+							<h:graphicImage class="img-responsive" library="img" name="email_button.png" style="width: 20%;"/>
+							<h:graphicImage class="img-responsive" library="img" name="face.png" style="width: 20%;"/>
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		
+	</ui:define>
+</ui:composition>
+
+
+</html>
