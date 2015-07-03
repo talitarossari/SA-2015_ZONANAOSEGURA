@@ -38,14 +38,14 @@ public class DenunciaMB {
 
 
 	public List<Denuncia> getDenuncias() {
+		if(denuncias == null){
+			denuncias = denunciaDao.listar();
+		}
 		return denuncias;
 	}
 
 
 	public void setDenuncias(List<Denuncia> denuncias) {
-		if(denuncias == null){
-			denuncias = denunciaDao.listar();
-		}
 		this.denuncias = denuncias;
 	}
 

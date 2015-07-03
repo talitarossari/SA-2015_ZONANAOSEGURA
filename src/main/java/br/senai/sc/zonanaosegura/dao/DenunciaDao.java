@@ -9,10 +9,7 @@ import br.senai.sc.zonanaosegura.entity.Denuncia;
 public class DenunciaDao extends Dao  {
 
 	public void inserir(Denuncia denuncia) {
-		try {
 			getEntityManager().persist(denuncia);
-		} catch (Exception e) {
-		}
 	}
 
 	public void excluir(Long id) {
@@ -26,23 +23,15 @@ public class DenunciaDao extends Dao  {
 	}
 
 	public void atualizar(Denuncia denuncia) {
-		try {
 			getEntityManager().merge(denuncia);
-		} catch (Exception e) {
-		}
 
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Denuncia> listar() {
-		try {
-			Query query = getEntityManager().createQuery("From Denuncia",
-					Denuncia.class);
-			List<Denuncia> denuncias = (List<Denuncia>) query;
-			return denuncias;
-		} catch (Exception e) {
-		}
-		return null;
+		Query query = getEntityManager().createQuery("From Denuncia",
+				Denuncia.class);
+		return query.getResultList();
 	}
 
 }

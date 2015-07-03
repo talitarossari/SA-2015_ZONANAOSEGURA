@@ -5,46 +5,68 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-	
-	<ui:composition template="/WEB-INF/templates/templateMapa.xhtml">
-		<ui:define name="title">
+
+<ui:composition template="/WEB-INF/templates/templateMapa.xhtml">
+	<ui:define name="title">
 		    Mapa
 		</ui:define>
-		<ui:define name="tituloPagina">Mapa</ui:define>
-		<ui:define name="adicionarObjeto">
-			<h:link outcome="addUsuario">
-				<span class="glyphicon glyphicon-plus "></span>
-				<span class="glyphicon glyphicon-user "></span> Adicionar Usuario </h:link>
-		</ui:define>
-		<ui:define name="informacaoMapa">
-			<h:form enctype="multipart/form-data">
-					<h:dataTable styleClass="table table-striped"
-						value="#{usuarioMB.usuarios}" var="item">
-						<h:column>
-							<f:facet name="header">ID</f:facet>
-							<h:outputText value="#{item.id}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Login</f:facet>
-							<h:outputText value="#{item.login}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Nome</f:facet>
-							<h:outputText value="#{item.nome}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Senha</f:facet>
-							<h:outputText value="#{item.senha}" />
-						</h:column>
-					</h:dataTable>
-				</h:form>
-		</ui:define>
-		<ui:define name="content">
-			<script type="text/javascript"
-						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
-	    	</script>
-		<h:outputScript library="js" name="mapa.js"></h:outputScript>
-    <div id="map-canvas" style="height: 100%"></div>
-		</ui:define>
-	</ui:composition>
+	<ui:define name="tituloPagina">Mapa</ui:define>
+	<ui:define name="informacaoMapa">
+	
+	<h:form name="form" enctype="multipart/form-data">	
+			<h:dataTable styleClass="table table-striped"
+				value="#{denunciaMB.denuncias}" var="item">
+				<h:column>
+					<f:facet name="header">BO</f:facet>
+					<h:outputText value="#{item.bo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Horario</f:facet>
+					<h:outputText value="#{item.horario}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Cidade</f:facet>
+					<h:outputText value="#{item.local.cidade.cidade}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Endereco</f:facet>
+					<h:outputText value="#{item.local.endereco}" />
+				</h:column>
+			</h:dataTable>
+			<style>
+				.excluir{
+					display:none;
+				}
+			</style>
+	</h:form>
+				<ui:repeat id="repetidor" class="excluir" var="item" value="#{denunciaMB.denuncias}">
+							<h:inputText class="latitude excluir" value="#{item.local.latitude}" />
+							<h:inputText class="longitude excluir" value="#{item.local.longitude}" />
+							<h:inputText class="endereco excluir" value="#{item.local.endereco}" />
+				</ui:repeat>
+<!-- 		<input class="longitude" value="-48.5495"/>	 -->
+<!-- 		<input class="longitude" value="-22.44456"/>	 -->
+<!-- 		<input class="longitude" value="-21.33"/>	 -->
+<!-- 		<input class="longitude" value="-24"/> -->
+<!-- 		<input class="latitude" value="-27.5969"/>	 -->
+<!-- 		<input class="latitude" value="22.44456"/>	 -->
+<!-- 		<input class="latitude" value="21.33"/>	 -->
+<!-- 		<input class="latitude" value="24"/> -->
+<!-- 		<input class="endereco" value="Florianopolis"/>	 -->
+<!-- 		<input class="endereco" value="banana69"/>	 -->
+<!-- 		<input class="endereco" value="banana69"/>	 -->
+<!-- 		<input class="endereco" value="banana69"/> -->
+<!-- 		<input class="id" value="1"/>	 -->
+<!-- 		<input class="id" value="2"/>	 -->
+<!-- 		<input class="id" value="3"/>	 -->
+<!-- 		<input class="id" value="4"/> -->
+	</ui:define>
+	<ui:define name="content">
+				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
+	    		</script>
+		<div id="map-canvas" style="height: 100%">
+					<h:outputScript library="js" name="mapa2.js" />
+		</div>
+	</ui:define>
+</ui:composition>
 </html>

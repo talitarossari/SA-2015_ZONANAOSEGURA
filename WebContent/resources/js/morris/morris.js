@@ -81,9 +81,6 @@ Licensed under the BSD-2-Clause License.
       } else {
         this.el = $(options.element);
       }
-      if ((this.el == null) || this.el.length === 0) {
-        throw new Error("Graph container element not found");
-      }
       if (this.el.css('position') === 'static') {
         this.el.css('position', 'relative');
       }
