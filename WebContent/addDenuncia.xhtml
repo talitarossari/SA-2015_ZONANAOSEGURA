@@ -21,6 +21,7 @@
 				</div>
 			</div>
 			<div class="col-md-7 fundoDenuncias " style="margin-top: 1%">
+			<h:messages class="mensagem" globalOnly="true" />
 				<h:form id="form" enctype="multipart/form-data">
 					<h:outputLabel style="text-align: left; color: #fff;"
 						class="seguranca" value="Dados do Crime:" />
@@ -43,24 +44,19 @@
 							value="#{denunciaMB.denuncia.tipo}">
 							<f:selectItem itemLabel="Selecione" />
 							<f:selectItems value="#{denunciaMB.tipos}" var="tipo"
-								itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+								itemLabel="#{tipo.descricao}" itemValue="#{tipo.id}" />
 						</h:selectOneMenu>
 
 					</div>
 					<div class="col-md-4">
 						<h:outputLabel>Realizou B.O?</h:outputLabel>
-						<h:selectOneMenu styleClass="form-control">
-							<f:selectItem itemValue="1" itemLabel="Selecione" />
-							<f:selectItem itemValue="2" itemLabel="Sim" />
-							<f:selectItem itemValue="2" itemLabel="Não" />
-						</h:selectOneMenu>
+						<h:inputText value="#{denunciaMB.denuncia.bo}" styleClass="form-control"/>
 					</div>
 					
 					<div class="col-md-4" styleClass="datepicker">
 						<h:outputLabel>Data:</h:outputLabel>
 						<h:inputText styleClass="form-control" id="data"
-							converterMessage="Data inválida">
-								<f:passThroughAttribute name="type" value="date" />
+							converterMessage="Data inválida" value="#{denunciaMB.denuncia.date}">
 								<f:convertDateTime pattern="yyyy-MM-dd" />
 						</h:inputText>
 					</div>
@@ -70,15 +66,19 @@
 					</div>
 					<div class="col-md-4">
 						<h:outputLabel>Dinheiro:</h:outputLabel>
-						<h:inputText styleClass="form-control time" />
+						<h:inputText styleClass="form-control" value="#{denunciaMB.denuncia.dinheiro}" />
 					</div>
 					<div class="col-md-12">
 						<h:outputLabel value="Objeto Roubado:" />
-						<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}"
-							styleClass="testando">
-							<f:selectItems value="#{objetoMB.objetos}" var="tipo"
-								itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
+						<h:selectManyCheckbox value="#{denunciaMB.denuncia.objetos}" styleClass="testando">
+							<f:selectItems value="#{objetoMB.objetos}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo.id}" />
+							
 						</h:selectManyCheckbox>
+						
+					</div>
+					<div class="col-md-6">
+						<h:outputLabel value="Titulo:" />
+						<h:inputText styleClass="form-control"  value="#{denunciaMB.denuncia.titulo}"/>
 					</div>
 					<div class="col-md-12">
 						<h:outputLabel value="Descricao do Crime:" />

@@ -14,6 +14,9 @@ var localizacao = [];
   setMarkers(map, localizacao);
 }
 
+
+
+
 /**
  * Data for the markers consisting of a name, a LatLng and a zIndex for
  * the order in which these markers should display on top of each
@@ -28,10 +31,37 @@ function setMarkers(map,locations) {
     var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
     var marker = new google.maps.Marker({
         position: myLatLng,
-        map: map,
-        title: beach[0]
+        map: map
     });
+    var content = "O Endereco <b> é: </b> " + beach[0];    
+
+    var infowindow = new google.maps.InfoWindow()
+
+    google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+          return function() {
+             infowindow.setContent(content);
+             infowindow.open(map,marker);
+          };
+      })(marker,content,infowindow)); 
   }
 }
 google.maps.event.addDomListener(window, 'load', initialize);
+});
+
+$(function(){
+	function codeAddress() {
+	  var address = document.getElementById('cidade').value;
+	  geocoder.geocode( { 'address': address}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {
+	      map.setCenter(results[0].geometry.location);
+	      var marker = new google.maps.Marker({
+	          map: map,
+	          position: results[0].geometry.location,
+	          zoom: 15	          
+	      });
+	    } else {
+	      alert('Geocode was not successful for the following reason: ' + status);
+	    }
+	  });
+	}
 });

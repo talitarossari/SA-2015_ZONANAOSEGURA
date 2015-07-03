@@ -17,7 +17,9 @@ public class Denuncia {
 	private Long id;
 	private Date date;
 	private String horario;
+	private String titulo;
 	private String descricao;
+	private Float dinheiro;
 	private String bo;
 	@ManyToOne
 	private Local local;
@@ -88,6 +90,22 @@ public class Denuncia {
 
 	public void setBo(String bo) {
 		this.bo = bo;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public Float getDinheiro() {
+		return dinheiro;
+	}
+
+	public void setDinheiro(Float dinheiro) {
+		this.dinheiro = dinheiro;
 	}
 
 }

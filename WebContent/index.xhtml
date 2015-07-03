@@ -24,32 +24,24 @@
 
 							<h:outputLabel class="seguranca">Verifique e ajude a Manter a Seguranca para todos!</h:outputLabel>
 						</div>
-						<div class="col-md-6 col-xs-12 altura" style="margin-top: 2%">
+						<div class="col-md-6 col-xs-12 altura" style="margin-top: 2%;">
 							<div class="col-md-12 col-xs-12">
-								<form class="search-form">
-									<label class="tituloZona">Voçê ja Verificou a Segurança
-										Hoje?</label>
-									<div class="form-group has-feedback" style="top: 7px;">
-										<h:inputText
-											value=" #{denunciaMB.denuncia.local.cidade.cidade}" id="address" type="textbox" ></h:inputText>
-										<label for="search" class="sr-only">Digite aqui o nome
-											da sua Cidade</label> <input class="form-control campo" name="search"
-											id="address" placeholder="Digite a cidade" />
-										<div><h:commandButton type="button" value="Buscar" onclick="codeAddress()" /></div>
-										<span></span>
+								<h:form id="form">
+									<label class="tituloZona">Você ja Verificou a Segurança Hoje?</label>
+									<div class="col-xs-10">
+										<h:inputText value="#{denunciaMB.cidade.cidade}" id="cidade"  class="form-control campo" ></h:inputText> 
 									</div>
 									
-								</form>
+									<h:commandButton class="col-xs-2 btn btn-default" value="Buscar" h="#{denunciaMB.modificarMapa()}"/>
+								</h:form>								
+								<script>
+
+								
+								</script>
+								
 							</div>
-							<div class="col-md-12 col-xs-12">
-
-
-
-								<h:graphicImage id="imagemVideo"
-									class="img-responsive capaVideo " library="img"
-									name="capaVideo.png" />
-
-
+							<div class="col-md-12 col-xs-12" style="margin-top: 2%;">
+								<h:graphicImage id="imagemVideo" class="img-responsive capaVideo " library="img" name="capaVideo.png" />
 							</div>
 						</div>
 					</div>
@@ -88,8 +80,9 @@
 			</div>
 			<div id="posiciona" style="display: none;">
 				<div id="fechar">
-					<h:graphicImage onclick="javascript:fechar();" library="img" name="close.png" style="width:45px;"/>
-<!-- 					<a >FECHAR</a> -->
+					<h:graphicImage onclick="javascript:fechar();" library="img"
+						name="close.png" style="width:45px; cursor:pointer;" />
+					<!-- 					<a >FECHAR</a> -->
 				</div>
 
 				<video id="myVideo" width="100%" controls="controls"> <source
@@ -103,8 +96,8 @@
 								    function fechar() { 
 								        document.getElementById("posiciona").style.display = 'none'; 
 								    }
-								 </script>
-							</div>
+			 </script>
+		</div>
 	</ui:define>
 </ui:composition>
 
