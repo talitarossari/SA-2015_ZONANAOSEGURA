@@ -20,6 +20,21 @@ a:hover, a:focus {
     border-color: #E7E7E7;
 }
 
+.side-nav{
+	background:tranparent;
+	  position: fixed;
+	  top: 77px;
+	  left: 300px;
+	  width: 300px;
+	  margin-left: -300px;
+	  border: none;
+	  border-radius: 0;
+	  overflow-y: auto;
+	  bottom: 0;
+	  overflow-x: hidden;
+	  padding-bottom: 40px;
+}
+
 .search-form .form-group {
   float: right !important;
   transition: all 0.35s, border-radius 0s;
@@ -201,22 +216,22 @@ ul.alert-dropdown {
 
 @media(min-width:768px) {
     .side-nav {
-		background: linear-gradient(#404356, #0B0C17) repeat scroll 0% 0% transparent !important;
-        position: fixed;
-        top: 55px;
-        left: 225px;
-        width: 225px;
-        margin-left: -225px;
-        border: none;
-        border-radius: 0;
-        overflow-y: auto;
-        bottom: 0;
-        overflow-x: hidden;
-        padding-bottom: 40px;
+		background:tranparent;
+	  position: fixed;
+	  top: 77px;
+	  left: 300px;
+	  width: 300px;
+	  margin-left: -300px;
+	  border: none;
+	  border-radius: 0;
+	  overflow-y: auto;
+	  bottom: 0;
+	  overflow-x: hidden;
+	  padding-bottom: 40px;
     }
 
     .side-nav>li>a {
-        width: 225px;
+        width: 300px;
     }
 
     .side-nav li a:hover,

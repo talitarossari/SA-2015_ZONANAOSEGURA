@@ -9,6 +9,15 @@
 	height: 100%;
 }
 
+
+.quemSomos{
+	color: #000 !important;
+	position: absolute;
+	bottom: 0;
+	height: 25px;
+	top: 0;
+	margin: auto;
+}
 .campo{
 	background-color: #CACACA;
 }
@@ -100,7 +109,6 @@ width: auto;
 
 html{
 	  height: 100%;
-	    overflow: hidden;
 }
 body{
 	  height: 100%;

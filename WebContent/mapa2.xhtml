@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<ui:composition template="/WEB-INF/templates/templateMapa.xhtml">
+		<ui:define name="title">
+		    Mapa
+		</ui:define>
+		<ui:define name="tituloPagina">Mapa</ui:define>
+		<ui:define name="adicionarObjeto">
+			<h:link outcome="addUsuario">
+				<span class="glyphicon glyphicon-plus "></span>
+				<span class="glyphicon glyphicon-user "></span> Adicionar Usuario </h:link>
+		</ui:define>
+		<ui:define name="informacaoMapa">
+			<h:form enctype="multipart/form-data">
+					<h:dataTable styleClass="table table-striped"
+						value="#{usuarioMB.usuarios}" var="item">
+						<h:column>
+							<f:facet name="header">ID</f:facet>
+							<h:outputText value="#{item.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Login</f:facet>
+							<h:outputText value="#{item.login}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputText value="#{item.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Senha</f:facet>
+							<h:outputText value="#{item.senha}" />
+						</h:column>
+					</h:dataTable>
+				</h:form>
+		</ui:define>
+		<ui:define name="content">
+			<script type="text/javascript"
+						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">
+	    	</script>
+		<h:outputScript library="js" name="mapa.js"></h:outputScript>
+    <div id="map-canvas" style="height: 100%"></div>
+		</ui:define>
+	</ui:composition>
+</html>

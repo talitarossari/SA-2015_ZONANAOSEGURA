@@ -20,6 +20,13 @@
 		box-shadow: 3px 8px 10px rgba(84, 84, 84, 0.47);
 		
 	}
+	.quemSomos{
+	color: #000 !important;
+position: absolute;
+bottom: 0;
+height: 24px;
+top: 0;
+margin: auto;}
 	.capaVideo:hover
 	{
 		width: 100%;
@@ -41,15 +48,11 @@
 	
 .push_button {
 	position: relative;
-	width:220px;
-	height:40px;
 	text-align:center;
 	color:#FFF;
 	text-decoration:none;
 	line-height:43px;
-	
 	display: block;
-	margin: 30px;
 }
 .push_button:before {
 	background:#f0f0f0;

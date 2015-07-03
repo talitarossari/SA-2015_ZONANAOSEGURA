@@ -19,7 +19,6 @@
 <h:outputScript library="js" name="morris/morris.js" />
 <h:outputScript library="js" name="morris/raphael.min.js" />
 <h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
-
 <link rel="icon" href=" #{resource['/img/ApiThief.png']}" />
 
 </h:head>
@@ -28,8 +27,6 @@
 	<ui:debug hotkey="x"
 		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
 	    <div id="wrapper" style="height: 100%">
-			
-			
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         	
@@ -47,23 +44,16 @@
            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                
+                    <ul class="nav navbar-nav side-nav">
+	                    <ui:insert name="informacaoMapa">
+	                    	
+	                    </ui:insert>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
 	        <div id="page-wrapper" style="height: 100%">
 	            <ui:insert name="content">
-							
-								  
-										
-			                <div class="row" style="height: 100%">
-			                    <div class="col-lg-12 col-md-12 col-xs-12 " style="height: 100%">
-			                     <ui:insert name="tabela"> 
-			                     
-			                     
-								</ui:insert>
-			             	</div>
-			     		</div>
 					
 				</ui:insert>
 	        </div>

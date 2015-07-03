@@ -1,5 +1,4 @@
 body {
-	overflow-x: hidden;
 	background-image: url("#{resource['/img/bg.png']}");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
