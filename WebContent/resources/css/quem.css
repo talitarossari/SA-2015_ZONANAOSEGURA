@@ -1,11 +1,18 @@
+@font-face {
+
+      font-family: "BebasNeue";
+      src: url("#{resource['/font/BebasNeue.otf']}");format("truetype");
+
+      }
+
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000;
 }
-	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
 
 .flip-container, .front, .backB, .backR {
 	width: 241px;
@@ -16,14 +23,12 @@
 .flipper {
 	transition: 0.6s;
 	transform-style: preserve-3d;
-
 	position: relative;
 }
 
 /* hide back of pane during swap */
 .front, .back {
 	backface-visibility: hidden;
-
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -41,55 +46,93 @@
 	transform: rotateY(180deg);
 	;
 }
-.backB{
+
+.backB {
 	transform: rotateY(180deg);
 	background-image: url("#{resource['/img/bgB.jpg']}");
 	background-size: 100%;
 }
-.backR{
+
+.backR {
 	transform: rotateY(180deg);
 	background-image: url("#{resource['/img/bgR.jpg']}");
 	background-size: 100%;
 }
 
-.flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
+.flip-container:hover .flipper, .flip-container.hover .flipper,
+	.flip-container.flip .flipper {
 	transform: rotateY(180deg);
 }
+
 .vertical.flip-container {
 	position: relative;
 }
 
-	.vertical .back {
-		transform: rotateX(180deg);
-	}
+.vertical .back {
+	transform: rotateX(180deg);
+}
 
-	.vertical.flip-container .flipper {
-		transform-origin: 100% 213.5px; /* half of height */
-	}
+.vertical.flip-container .flipper {
+	transform-origin: 100% 213.5px; /* half of height */
+}
 
-	.vertical.flip-container:hover .flipper {
-		transform: rotateX(-180deg);
-	}
+.vertical.flip-container:hover .flipper {
+	transform: rotateX(-180deg);
+}
+
+.back-title {
+	font-weight: bold;
+	color: #00304a;
+	position: absolute;
+	top: 180px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	text-shadow: 0.1em 0.1em 0.05em #acd7e5;
+	font-family: Courier;
+	font-size: 22px;
+}
+
+.back p {
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding: 0 20px;
+	font-size: 18px;
+}
+
+.equipe {
+	margin-top:0%;
 	
-	.back-title {
-			font-weight: bold;
-			color: #00304a;
-			position: absolute;
-			top: 180px;
-			left: 0;
-			right: 0;
-			text-align: center;
-			text-shadow: 0.1em 0.1em 0.05em #acd7e5;
-			font-family: Courier;
-			font-size: 22px;
-		}
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+	
+}
 
-		.back p {
-			position: absolute;
-			bottom: 40px;
-			left: 0;
-			right: 0;
-			text-align: center;
-			padding: 0 20px;
-			font-size: 18px;
-		}
+.equipe:hover {
+	margin-top:-2%;
+}
+
+.titulo{
+	 font-family: "BebasNeue"; 
+	text-shadow: 2px 3px 6px #000;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.titulo:hover{
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+	text-shadow: 0px 0px 7px #000;
+}
