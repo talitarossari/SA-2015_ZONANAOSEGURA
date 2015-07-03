@@ -15,10 +15,11 @@ public class Denuncia {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Date date;
+	private String date;
 	private String horario;
 	private String descricao;
 	private String bo;
+	private float dinheiro; 
 	@ManyToOne
 	private Local local;
 	@ManyToMany
@@ -34,11 +35,21 @@ public class Denuncia {
 		this.id = id;
 	}
 
-	public Date getDate() {
+	
+
+	public float getDinheiro() {
+		return dinheiro;
+	}
+
+	public void setDinheiro(float dinheiro) {
+		this.dinheiro = dinheiro;
+	}
+
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
