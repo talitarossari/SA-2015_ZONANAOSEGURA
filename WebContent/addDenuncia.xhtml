@@ -46,6 +46,8 @@
 							<f:selectItems value="#{denunciaMB.tipos}" var="tipo"
 								itemLabel="#{tipo.descricao}" itemValue="#{tipo.id}" />
 						</h:selectOneMenu>
+					
+					
 
 					</div>
 					<div class="col-md-4">
@@ -57,7 +59,7 @@
 						<h:outputLabel>Data:</h:outputLabel>
 						<h:inputText styleClass="form-control" id="data"
 							converterMessage="Data inválida" value="#{denunciaMB.denuncia.date}">
-								<f:convertDateTime pattern="yyyy-MM-dd" />
+								
 						</h:inputText>
 					</div>
 					<div class="col-md-4">
@@ -81,9 +83,9 @@
 						<h:inputText styleClass="form-control"  value="#{denunciaMB.denuncia.titulo}"/>
 					</div>
 					<div class="col-md-12">
-						<h:outputLabel value="Descricao do Crime:" />
-						<h:inputTextarea styleClass="descricao" value="#{denunciaMB.denuncia.descricao}"/>
-						<span class="contador">256 caracteres restantes.</span>
+						<h:outputLabel value="Descrição do Crime:" />
+						<h:inputTextarea id="descricao" styleClass="descricao" value="#{denunciaMB.denuncia.descricao}"/>
+						<span class="contador">256 Caracteres Restantes.</span>
 					</div>
 					<div class="row">
 						<div class="col-md-12">

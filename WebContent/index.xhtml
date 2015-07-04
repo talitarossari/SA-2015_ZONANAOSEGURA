@@ -29,10 +29,10 @@
 								<h:form id="form">
 									<label class="tituloZona">Você ja Verificou a Segurança Hoje?</label>
 									<div class="col-xs-10">
-										<h:inputText value="#{denunciaMB.cidade.cidade}" id="cidade"  class="form-control campo" ></h:inputText> 
+										<h:inputText id="cidade"  class="form-control campo" ></h:inputText> 
 									</div>
 									
-									<h:commandButton class="col-xs-2 btn btn-default" value="Buscar" h="#{denunciaMB.modificarMapa()}"/>
+									<h:commandButton class="col-xs-2 btn btn-default" value="Buscar" action="#{denunciaMB.modificarMapa()}"/>
 								</h:form>								
 								<script>
 

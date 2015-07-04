@@ -1,7 +1,7 @@
 $(function(){
 function initialize() {
   var mapOptions = {
-    zoom: 15,
+    zoom: 8,
 	disableDefaultUI : true,
     center: new google.maps.LatLng(-27.5969,-48.5495)
   }
@@ -51,6 +51,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 $(function(){
 	function codeAddress() {
 	  var address = document.getElementById('cidade').value;
+	  if(address==null){
+		  address = "Florianopolis, SC"
+	  }
 	  geocoder.geocode( { 'address': address}, function(results, status) {
 	    if (status == google.maps.GeocoderStatus.OK) {
 	      map.setCenter(results[0].geometry.location);
