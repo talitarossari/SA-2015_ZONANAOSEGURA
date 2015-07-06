@@ -44,22 +44,7 @@
 							<h:inputText class="longitude excluir" value="#{item.local.longitude}" />
 							<h:inputText class="endereco excluir" value="#{item.local.endereco}" />
 				</ui:repeat>
-<!-- 		<input class="longitude" value="-48.5495"/>	 -->
-<!-- 		<input class="longitude" value="-22.44456"/>	 -->
-<!-- 		<input class="longitude" value="-21.33"/>	 -->
-<!-- 		<input class="longitude" value="-24"/> -->
-<!-- 		<input class="latitude" value="-27.5969"/>	 -->
-<!-- 		<input class="latitude" value="22.44456"/>	 -->
-<!-- 		<input class="latitude" value="21.33"/>	 -->
-<!-- 		<input class="latitude" value="24"/> -->
-<!-- 		<input class="endereco" value="Florianopolis"/>	 -->
-<!-- 		<input class="endereco" value="banana69"/>	 -->
-<!-- 		<input class="endereco" value="banana69"/>	 -->
-<!-- 		<input class="endereco" value="banana69"/> -->
-<!-- 		<input class="id" value="1"/>	 -->
-<!-- 		<input class="id" value="2"/>	 -->
-<!-- 		<input class="id" value="3"/>	 -->
-<!-- 		<input class="id" value="4"/> -->
+				<h:inputHidden id="cidade" value="#{denunciaMB.cidade.cidade}"></h:inputHidden>
 	</ui:define>
 	<ui:define name="content">
 				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf8gq4BKk_Qn_qmUoXe1RmCSrau5_Mm7Y">

@@ -74,14 +74,6 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="glyphicon glyphicon-ban-circle"></i> Denuncias <i class=" glyphicon glyphicon-menu-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-								<a  href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="glyphicon glyphicon-map-marker"></i> Locais <i class=" glyphicon glyphicon-menu-down"></i></a>
-									<ul id="demo2" class="collapse">
-										<li>
-											<h:link outcome="/admin/locais"><i class="glyphicon glyphicon-home"></i> Cidades</h:link>
-										</li>
-									</ul>
-                            </li>
-                            <li>
                                 <h:link outcome="/admin/objeto"><i class="glyphicon glyphicon-phone"></i> Objetos</h:link>
                             </li>
                             <li>
@@ -114,22 +106,11 @@
 							</div>
 							<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
 								<nav class="navbar navbar-default" style="margin-bottom: 0;" >
-									<div class="container-fluid" style="background-color:#FF8080 !important;">
+									<div class="container-fluid" style="background-color:#FF8080 !important;  height: 50px;">
 										<div class=" navbar-left" style="margin-right: 0px;">
-										<p class="navbar-text"><ui:insert name="adicionarObjeto">PADRAO</ui:insert></p>
+										<p class="navbar-text"><ui:insert name="adicionarObjeto"></ui:insert></p>
 										
 										
-										</div>
-										<div class=" navbar-right" style="margin-right: 0px;">
-											<form class="search-form">
-												<ui:insert name="pesquisaObjeto">
-													<div class="form-group has-feedback"  style="top: 7px;">
-														<label for="search" class="sr-only">Digite o ID Usuario</label>
-														<input type="text" class="form-control" name="search" id="search" placeholder="Digite o ID"></input>
-														<span class="glyphicon glyphicon-search form-control-feedback"></span>
-													</div>
-												</ui:insert>
-											</form>
 										</div>
 								  </div>
 								</nav>						

@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import br.senai.sc.zonanaosegura.dao.DenunciaDao;
 import br.senai.sc.zonanaosegura.dao.ObjetoDao;
 import br.senai.sc.zonanaosegura.dao.TipoCrimeDao;
+import br.senai.sc.zonanaosegura.entity.Cidade;
 import br.senai.sc.zonanaosegura.entity.Denuncia;
 import br.senai.sc.zonanaosegura.entity.Objeto;
 import br.senai.sc.zonanaosegura.entity.TipoCrime;
@@ -19,6 +20,7 @@ public class DenunciaMB {
 	private DenunciaDao denunciaDao;
 	private List<TipoCrime> tipos;
 	private List<Objeto> objetos;
+	private Cidade cidade;
 	
 	@PostConstruct
 	public void initMB() {
@@ -85,7 +87,7 @@ public class DenunciaMB {
 	
 	public String salvar(){
 		denunciaDao.inserir(denuncia);
-		return "listardenuncias?faces-redirect=true";
+		return "index?faces-redirect=true";
 	}
 	
 	public String excluir(String idParam){
@@ -97,7 +99,20 @@ public class DenunciaMB {
 	public String editar(String idParam){
 		Long id = Long.valueOf(idParam);
 		denuncia = denunciaDao.buscarPorId(id);
-		return "cadastrodenuncia";
+		return "cadastrodenuncia?faces-redirect=true";
+	}
+
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public String modificarMapa(){
+		return "mapa2?faces-redirect=true";
+	}
+	
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 }
